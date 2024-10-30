@@ -1,3 +1,9 @@
+import { RESTAURANTS_URL, RESTAURANTS_IDS } from "./constant";
+
+export type RestaurantURL = (typeof RESTAURANTS_URL)[keyof typeof RESTAURANTS_URL];
+export type RestaurantId = (typeof RESTAURANTS_IDS)[keyof typeof RESTAURANTS_IDS];
+
+
 export type Translation = {
     title: string;
     description: string | null;
@@ -77,5 +83,6 @@ export type Category = {
 export type RawRestaurant = {
     entity: Entity;
     categories: Category[];
+    products: Product[];
     status: number;
 };
