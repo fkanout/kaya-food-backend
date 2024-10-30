@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as cheerio from 'cheerio';
-import { Category, Entity, RawRestaurant, RestaurantURL } from "./types";
+import { RawCategory, Entity, RawRestaurant, RestaurantId, RestaurantURL, Restaurant } from "./types";
 import path from "path";
 
  
@@ -22,12 +22,12 @@ async function fetchJsonFromScriptTag(url: string): Promise<RawRestaurant | null
         return null;
     }
 }
-export const extractRestaurantInfo = (rawEntity: Entity | null)=>{
+export const extractRestaurantInfo = (rawEntity: Entity | null, restaurantId: string)=>{
     if (!rawEntity){
         throw ("No restaurant data")
     }
     const entity = {
-        id: rawEntity.idString,
+        id: restaurantId,
         restaurantTitle: {
             ar: rawEntity.translations[0]?.title,
             en: rawEntity.translations[1]?.title,
@@ -51,7 +51,7 @@ export const constructCategoryProducts = async (restaurantURL: RestaurantURL, ca
     }   
 }
 
-export const extractRestaurantCategories = async (restaurantURL: RestaurantURL, rawCategories: Category[], restaurantCoverImgURL: string | null)=>{
+export const extractRestaurantCategories = async (restaurantURL: RestaurantURL, rawCategories: RawCategory[], restaurantCoverImgURL: string | null)=>{
     if (!rawCategories){
         throw ("No categories data")
     }
@@ -72,6 +72,7 @@ export const extractRestaurantCategories = async (restaurantURL: RestaurantURL, 
             productsCount: products?.length,
             categoryImg: img,
             products: products?.map((product)=>({
+                id: product.idString,
                 title: {
                     ar: product.translations[0]?.title,
                     en: product.translations[1]?.title,
@@ -93,10 +94,10 @@ export const extractRestaurantCategories = async (restaurantURL: RestaurantURL, 
 
 
 
-export const constructRestaurant = async (restaurantURL: RestaurantURL)=>{
+export const constructRestaurant = async (restaurantURL: RestaurantURL, restaurantId: RestaurantId): Promise<Restaurant> =>{
     const restaurantRawData = await fetchJsonFromScriptTag(restaurantURL);
     if (!restaurantRawData) throw ("No raw data");
-    const restaurantInfo = extractRestaurantInfo(restaurantRawData.entity);
+    const restaurantInfo = extractRestaurantInfo(restaurantRawData.entity, restaurantId);
     const restaurantCategories = await extractRestaurantCategories(restaurantURL, restaurantRawData.categories, restaurantInfo.logo);
     const restaurant = ({...restaurantInfo, categories: restaurantCategories});
     return restaurant

@@ -50,7 +50,7 @@ export type Entity = {
     colors: Colors;
     revalidateTtl: number;
 };
-export type Product = {
+export type RawProduct = {
     idString: string;
     slug: string;
     translations: Translation[];
@@ -71,18 +71,73 @@ export type Product = {
         formatted: string;
     };
 };
-export type Category = {
+export type RawCategory = {
     idString: string;
     slug: string;
     translations: Translation[];
     productsCount: number;
     media: Media;
-    firstProduct: Product;
+    firstProduct: RawProduct;
 };
 
 export type RawRestaurant = {
     entity: Entity;
-    categories: Category[];
-    products: Product[];
+    categories: RawCategory[];
+    products: RawProduct[];
     status: number;
 };
+
+type Category = {
+    id: string;
+    slug: string;
+    title: {
+      ar?: string;
+      en?: string;
+      tr?: string;
+    };
+    productsCount: number;
+    categoryImg: string | null;
+    products: Product[];
+  };
+  
+  type Product = {
+    id: string;
+    title: {
+        ar?: string;
+        en?: string;
+        tr?: string;
+    };
+    description: {
+        ar: string | null;
+        en: string | null;
+        tr: string | null;
+    },
+    price: {
+        raw: number;
+        formatted: string;
+    };
+    img: string | null;
+  };
+
+export type Restaurant = {
+    id: string;
+    restaurantTitle: {
+      ar?: string;
+      en?: string;
+      tr?: string;
+    };
+    whatsappPhoneNumber: string;
+    socialMediaUrls: {
+      tiktok?: string;
+      twitter?: string;
+      facebook?: string;
+      instagram?: string;
+      googleMapsLink?: string;
+    };
+    updatedAt: number;
+    logo: string | null;
+    cover: string | null;
+    categories: Category[];
+  };
+  
+ 
