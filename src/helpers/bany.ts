@@ -82,7 +82,7 @@ export const extractRestaurantCategories = async (restaurantURL: RestaurantURL, 
                     en: product.translations[1]?.description,
                     tr: product.translations[2]?.description,
                 },
-                img: img,
+                img: product.media.cover || img,
                 price: product.price,
                 
             }))
