@@ -1,0 +1,2841 @@
+{
+  "id": "19a",
+  "restaurantTitle": {
+    "ar": "Taze Kasap & Et Lokantası",
+    "en": "Taze Kasap & Et Lokantası",
+    "tr": "Taze Kasap & Et Lokantası"
+  },
+  "whatsappPhoneNumber": "+905550535552",
+  "socialMediaUrls": {
+    "tiktok": "https://www.tiktok.com/@tazelokantasi?fbclid=IwAR3a4yINKIEE4vTME6_n3OTtJt0ksM__bRMD-FNeqkgU5Uj-KrKYARbvtLA",
+    "twitter": "",
+    "facebook": "https://www.facebook.com/tazelokantasi",
+    "instagram": "https://www.instagram.com/tazelokantasi?fbclid=IwAR0fVL3O4xIP26ciDLLClERzveqReIakFBmRA2Z1O02S-NH7E8MWznElupg",
+    "googleMapsLink": "https://maps.app.goo.gl/4tHx8d2PHcbzX1tS7"
+  },
+  "updatedAt": 1728729340,
+  "logo": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/entities/90250/resized/9P3MafewuSeyRJUT1BzBJAcsg6CsNz-metaMzY5NDU4ODI4Xzg2NDc0NzY2ODQ1MzU2N18zNDk0NzkzNTU3MTE2ODI0Mjc5X24uanBn--512.png",
+  "cover": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/entities/90250/resized/9P3MafewuSeyRJUT1BzBJAcsg6CsNz-metaMzY5NDU4ODI4Xzg2NDc0NzY2ODQ1MzU2N18zNDk0NzkzNTU3MTE2ODI0Mjc5X24uanBn--512.png",
+  "categories": [
+    {
+      "id": "35i",
+      "slug": "alshorbat-35i",
+      "title": {
+        "ar": "الشوربات"
+      },
+      "productsCount": 4,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/118078/resized/608-temp-HD.jpg",
+      "products": [
+        {
+          "title": {
+            "ar": "شوربة العدس",
+            "en": "lentil soup",
+            "tr": "Mercimek çorbası"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/118078/resized/608-temp-HD.jpg",
+          "price": {
+            "raw": 125,
+            "formatted": "125,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "شوربة البروكلي",
+            "en": "Broccoli vegetable soup",
+            "tr": "brokoli sebze çorbası"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/118077/resized/97-temp-HD.jpg",
+          "price": {
+            "raw": 125,
+            "formatted": "125,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "شوربة التراف",
+            "en": "creamy chicken truffle soup",
+            "tr": "kremalı tavuk trüf çorbası"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115027/resized/736-temp-HD.jpg",
+          "price": {
+            "raw": 150,
+            "formatted": "150,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "شوربة البصل",
+            "en": "French onion soup",
+            "tr": "fransiz soğan çorbası"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115013/resized/727-temp-HD.jpg",
+          "price": {
+            "raw": 150,
+            "formatted": "150,0 &#8378;"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2p2",
+      "slug": "appetizers-2p2",
+      "title": {
+        "ar": "مقبلات",
+        "en": "appetizers ",
+        "tr": "mezeler"
+      },
+      "productsCount": 24,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/118079/resized/43-temp-HD.jpg",
+      "products": [
+        {
+          "title": {
+            "ar": "فتوش الباذنجان",
+            "en": "patilcan fatoş"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/118079/resized/43-temp-HD.jpg",
+          "price": {
+            "raw": 175,
+            "formatted": "175,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "سلطة سيزر",
+            "en": "sezar salat"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 300,
+            "formatted": "300,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "تبولة الشوندر",
+            "en": "pencerli tabule"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115106/resized/873-temp-HD.jpg",
+          "price": {
+            "raw": 175,
+            "formatted": "175,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "سلطة الكينوا",
+            "en": "kinva salatsi"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115021/resized/658-temp-HD.jpg",
+          "price": {
+            "raw": 225,
+            "formatted": "225,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "مكس ساخن",
+            "en": "kraşık atıştırmak"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115052/resized/340-temp-HD.jpg",
+          "price": {
+            "raw": 300,
+            "formatted": "300,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "حمص بالباربيكيو",
+            "en": "humus with BBQ",
+            "tr": "barbekülü humus"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115053/resized/847-temp-HD.jpg",
+          "price": {
+            "raw": 150,
+            "formatted": "150,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "حمص بيستو",
+            "en": "pestu humus",
+            "tr": "fesleĝenli humus"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115105/resized/315-temp-HD.jpg",
+          "price": {
+            "raw": 175,
+            "formatted": "175,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "متبل الشوندر",
+            "en": "beet humus",
+            "tr": "pancer humus"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115413/resized/photo_2024-08-23_16-49-37-HD.jpg",
+          "price": {
+            "raw": 150,
+            "formatted": "150,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "يالنجي",
+            "en": "Yalanji",
+            "tr": "Yalanji"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115011/resized/349-temp-HD.jpg",
+          "price": {
+            "raw": 170,
+            "formatted": "170,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بطاطا مقلية",
+            "en": "fried potatoes",
+            "tr": "kızarmış patates"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90497/resized/36-HD.jpg",
+          "price": {
+            "raw": 125,
+            "formatted": "125,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "تبولة",
+            "en": "Tabbouleh",
+            "tr": "tabbouleh"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115023/resized/613-temp-HD.jpg",
+          "price": {
+            "raw": 155,
+            "formatted": "155,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "فتوش",
+            "en": "Fattoush",
+            "tr": "Fattuş"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115054/resized/156-temp-HD.jpg",
+          "price": {
+            "raw": 155,
+            "formatted": "155,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "سلطة عربية",
+            "en": "Oriental salad",
+            "tr": "Oryantal salata"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115018/resized/21-temp-HD.jpg",
+          "price": {
+            "raw": 155,
+            "formatted": "155,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "محمرة",
+            "en": "Muhammara",
+            "tr": "Muhammara"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115420/resized/photo_2024-08-23_16-57-12-HD.jpg",
+          "price": {
+            "raw": 150,
+            "formatted": "150,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "متبل",
+            "en": "Ali Nazik",
+            "tr": "Alinazik"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115020/resized/643-temp-HD.jpg",
+          "price": {
+            "raw": 150,
+            "formatted": "150,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "حمص باللحمة",
+            "en": "Hummus with meat",
+            "tr": "Etli humus"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90489/resized/58-HD.jpg",
+          "price": {
+            "raw": 210,
+            "formatted": "210,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "برك جبنة",
+            "en": "Cheese barak",
+            "tr": "Cheese barak"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115405/resized/photo_2024-08-23_16-39-28-HD.jpg",
+          "price": {
+            "raw": 45,
+            "formatted": "45,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "برك لحمة",
+            "en": "Cheese barak",
+            "tr": "Cheese barak"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115407/resized/photo_2024-08-23_16-39-21-HD.jpg",
+          "price": {
+            "raw": 65,
+            "formatted": "65,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "حمص",
+            "en": "hummus",
+            "tr": "Humus"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115418/resized/photo_2024-08-23_16-56-01-HD.jpg",
+          "price": {
+            "raw": 140,
+            "formatted": "140,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "باطرش حموي",
+            "en": "Batrash",
+            "tr": "Batraş"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/97616/resized/%D8%A8%D8%A7%D8%B7%D8%B1%D8%B4-HD.jpg",
+          "price": {
+            "raw": 265,
+            "formatted": "265,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "ميكس بارد",
+            "en": "Cold mix",
+            "tr": "Cold mix"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115411/resized/photo_%D9%A2%D9%A0%D9%A2%D9%A4-%D9%A0%D9%A8-%D9%A2%D9%A3_%D9%A1%D9%A6-%D9%A4%D9%A9-%D9%A1%D9%A8-HD.jpg",
+          "price": {
+            "raw": 255,
+            "formatted": "255,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بابا غنوج",
+            "en": "Baba ghanoush",
+            "tr": "baba ghanoush"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115022/resized/416-temp-HD.jpg",
+          "price": {
+            "raw": 150,
+            "formatted": "150,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "سلطة  روكا",
+            "en": "Arugula salad",
+            "tr": "Roka salatası"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115019/resized/133-temp-HD.jpg",
+          "price": {
+            "raw": 165,
+            "formatted": "165,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "حمص بيروتي",
+            "en": "Beirut hummus",
+            "tr": "Beyrut humusu"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/97626/resized/%D8%AD%D9%85%D8%B5-%D8%A8%D9%8A%D8%B1%D9%88%D8%AA%D9%8A-HD.jpg",
+          "price": {
+            "raw": 155,
+            "formatted": "155,0 &#8378;"
+          }
+        }
+      ]
+    },
+    {
+      "id": "35j",
+      "slug": "spaghetti-35j",
+      "title": {
+        "ar": "معكرونة",
+        "en": "SPAGHETTI",
+        "tr": "MAKARANA"
+      },
+      "productsCount": 6,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/entities/90250/resized/9P3MafewuSeyRJUT1BzBJAcsg6CsNz-metaMzY5NDU4ODI4Xzg2NDc0NzY2ODQ1MzU2N18zNDk0NzkzNTU3MTE2ODI0Mjc5X24uanBn--512.png",
+      "products": [
+        {
+          "title": {
+            "ar": "سباغتي بولونيز",
+            "en": "spaghetti, Bolognese",
+            "tr": "Spagetti bolonez"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 350,
+            "formatted": "350,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "فوتوشيني الفيريدو",
+            "en": "Fettuccine Alfredo",
+            "tr": "Fettuccine Alfredo"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 350,
+            "formatted": "350,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بينا ارابيتا",
+            "en": "pina arrabiata",
+            "tr": "pene  arrabiata"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 250,
+            "formatted": "250,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "ماك اند تشييز تشكن",
+            "en": "Mac & cheese chicken",
+            "tr": "Mac & cheese chicken"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 350,
+            "formatted": "350,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "معكرونة الشوندر بالدجاج",
+            "en": "pencer tavuklu makarna"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 350,
+            "formatted": "350,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "معكرونة البيستو بالدجاج",
+            "en": "tavuklu pestu makarna"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 350,
+            "formatted": "350,0 &#8378;"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2pa",
+      "slug": "alarz-2pa",
+      "title": {
+        "ar": "الأرز"
+      },
+      "productsCount": 5,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115031/resized/453-temp-HD.jpg",
+      "products": [
+        {
+          "title": {
+            "ar": "وجبة أرز كبسة",
+            "en": "Kabsa rice meal",
+            "tr": "Pirinç tabağı"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115031/resized/453-temp-HD.jpg",
+          "price": {
+            "raw": 160,
+            "formatted": "160,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "وجبة أرز مندي",
+            "en": "Mandi rice meal",
+            "tr": "Pirinç tabağı"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115032/resized/398-temp-HD.jpg",
+          "price": {
+            "raw": 160,
+            "formatted": "160,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "منسف أردني سادة",
+            "en": "Plain Jordanian mansaf",
+            "tr": "Pirinç tabağı"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115086/resized/729-temp-HD.jpg",
+          "price": {
+            "raw": 160,
+            "formatted": "160,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "وجبة أرز أبيض",
+            "en": "White rice meal",
+            "tr": "Pirinç tabağı"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115033/resized/875-temp-HD.jpg",
+          "price": {
+            "raw": 160,
+            "formatted": "160,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "وجبة فريكة سادة",
+            "en": "Plain freekeh meal",
+            "tr": "Pirinç tabağı"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115034/resized/425-temp-HD.jpg",
+          "price": {
+            "raw": 160,
+            "formatted": "160,0 &#8378;"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2p1",
+      "slug": "kibbeh-2p1",
+      "title": {
+        "ar": "كبة",
+        "en": "Kibbeh ",
+        "tr": "İçli köfte "
+      },
+      "productsCount": 3,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115363/resized/photo_%D9%A2%D9%A0%D9%A2%D9%A4-%D9%A0%D9%A8-%D9%A2%D9%A3_%D9%A1%D9%A5-%D9%A0%D9%A2-%D9%A3%D9%A6-HD.jpg",
+      "products": [
+        {
+          "title": {
+            "ar": "كبه صاجيه ",
+            "en": "ilçi köfte sacı"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115363/resized/photo_%D9%A2%D9%A0%D9%A2%D9%A4-%D9%A0%D9%A8-%D9%A2%D9%A3_%D9%A1%D9%A5-%D9%A0%D9%A2-%D9%A3%D9%A6-HD.jpg",
+          "price": {
+            "raw": 275,
+            "formatted": "275,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كبة مقلية",
+            "en": "Fried kibbeh",
+            "tr": "Kızarmış içli köfte"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115416/resized/photo_%D9%A2%D9%A0%D9%A2%D9%A4-%D9%A0%D9%A8-%D9%A2%D9%A3_%D9%A1%D9%A6-%D9%A4%D9%A9-%D9%A1%D9%A9-HD.jpg",
+          "price": {
+            "raw": 85,
+            "formatted": "85,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كبة مشوية",
+            "en": "Grilled kibbeh",
+            "tr": "Izgara içli köfte"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115084/resized/538-temp-HD.jpg",
+          "price": {
+            "raw": 105,
+            "formatted": "105,0 &#8378;"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2oq",
+      "slug": "grills-2oq",
+      "title": {
+        "ar": "المشاوي",
+        "en": "Grills",
+        "tr": "Izgaralar"
+      },
+      "productsCount": 13,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/entities/90250/resized/9P3MafewuSeyRJUT1BzBJAcsg6CsNz-metaMzY5NDU4ODI4Xzg2NDc0NzY2ODQ1MzU2N18zNDk0NzkzNTU3MTE2ODI0Mjc5X24uanBn--512.png",
+      "products": [
+        {
+          "title": {
+            "ar": "معجوقة",
+            "en": "macuka",
+            "tr": "macuka"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 500,
+            "formatted": "500,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كباب بالكرز",
+            "en": "veşneli kebab"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115048/resized/555-temp-HD.jpg",
+          "price": {
+            "raw": 500,
+            "formatted": "500,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "شقف غنم",
+            "en": "Sheep shearling",
+            "tr": "Sheep shearling"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90257/resized/21-HD.jpg",
+          "price": {
+            "raw": 430,
+            "formatted": "430,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "ريش",
+            "en": "feathers",
+            "tr": "Kuzu pirzola porsiyon"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90285/resized/15-HD.jpg",
+          "price": {
+            "raw": 550,
+            "formatted": "550,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كباب تازة",
+            "en": "Kebab Taza",
+            "tr": "Kebap Taza"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115107/resized/188-temp-HD.jpg",
+          "price": {
+            "raw": 390,
+            "formatted": "390,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كباب خشخاش",
+            "en": "Khashkhash kebab",
+            "tr": "Haşhaş kebabı"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90271/resized/55-HD.jpg",
+          "price": {
+            "raw": 400,
+            "formatted": "400,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "مشاوي مشكلة",
+            "en": "Mix grill",
+            "tr": "Karışık ızgara"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/95929/resized/42-HD.jpg",
+          "price": {
+            "raw": 550,
+            "formatted": "550,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "توشكا",
+            "en": "Toshka",
+            "tr": "Toşka"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/95928/resized/35-HD.jpg",
+          "price": {
+            "raw": 420,
+            "formatted": "420,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "مارينا",
+            "en": "Marina",
+            "tr": "yat Limanı"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/110642/resized/b91ddb80-1693-11ef-a74f-9f425de82da9-HD.jpg",
+          "price": {
+            "raw": 410,
+            "formatted": "410,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "شيش طاووق",
+            "en": "chicken Grill",
+            "tr": "tavuk ızgara"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115047/resized/409-temp-HD.jpg",
+          "price": {
+            "raw": 300,
+            "formatted": "300,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "جوانح",
+            "en": "Wings",
+            "tr": "Kanatlar"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90299/resized/41-HD.jpg",
+          "price": {
+            "raw": 325,
+            "formatted": "325,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "فروج على الفحم مع بطاطا",
+            "en": "Charcoal grilled chicken with potatoes",
+            "tr": "Kömürde kızartılmış patatesli tavuk"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90305/resized/2-HD.jpg",
+          "price": {
+            "raw": 600,
+            "formatted": "600,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كباب بالمكسرات",
+            "en": "Kebab with nuts",
+            "tr": "Fındıklı kebap"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90274/resized/17-HD.jpg",
+          "price": {
+            "raw": 430,
+            "formatted": "430,0 &#8378;"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2os",
+      "slug": "grills-kilo-2os",
+      "title": {
+        "ar": "المشاوي (كيلو)",
+        "en": "Grills (kilo)",
+        "tr": "Izgaralar (kilo)"
+      },
+      "productsCount": 9,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/112062/resized/3fb9c1f0-2369-103b-8deb-ff5a02ad2724-HD.jpg",
+      "products": [
+        {
+          "title": {
+            "ar": "معجوقة",
+            "en": "macuka"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/112062/resized/3fb9c1f0-2369-103b-8deb-ff5a02ad2724-HD.jpg",
+          "price": {
+            "raw": 500,
+            "formatted": "500,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "شقف غنم",
+            "en": "Sheep shearling",
+            "tr": "Sheep shearling"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90256/resized/21-HD.jpg",
+          "price": {
+            "raw": 1600,
+            "formatted": "1.600,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كباب تازة",
+            "en": "Kebab Taza",
+            "tr": "Kebap Taza"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90267/resized/14-HD.jpg",
+          "price": {
+            "raw": 1350,
+            "formatted": "1.350,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "ميكس مشاوي",
+            "en": "Mix grills",
+            "tr": "karışık ızgara"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/114588/resized/IMG_20240807_013040_803-HD.jpg",
+          "price": {
+            "raw": 1500,
+            "formatted": "1.500,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كباب خشخاش",
+            "en": "Khashkhash kebab",
+            "tr": "Haşhaş kebabı"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90549/resized/55-HD.jpg",
+          "price": {
+            "raw": 1650,
+            "formatted": "1.650,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "ريش",
+            "en": "feathers",
+            "tr": "Kuzu pirzola"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90286/resized/15-HD.jpg",
+          "price": {
+            "raw": 1500,
+            "formatted": "1.500,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "شيش طاووق",
+            "en": "chicken Grill",
+            "tr": "tavuk ızgara"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90294/resized/40-HD.jpg",
+          "price": {
+            "raw": 750,
+            "formatted": "750,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "جوانح دجاج",
+            "en": "Chicken wings",
+            "tr": "Tavuk kanat"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90542/resized/41-HD.jpg",
+          "price": {
+            "raw": 850,
+            "formatted": "850,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كباب بالمكسرات",
+            "en": "Kebab with nuts",
+            "tr": "Fındıklı kebap"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90273/resized/17-HD.jpg",
+          "price": {
+            "raw": 1800,
+            "formatted": "1.800,0 &#8378;"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2oy",
+      "slug": "oriental-cuisine-meat-2oy",
+      "title": {
+        "ar": "المطبخ الشرقي (لحوم)",
+        "en": "Oriental cuisine (meat)",
+        "tr": "Doğu mutfağı (et)"
+      },
+      "productsCount": 16,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115029/resized/936-temp-HD.jpg",
+      "products": [
+        {
+          "title": {
+            "ar": "مقلوبة لحم",
+            "en": "etli makluba"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115029/resized/936-temp-HD.jpg",
+          "price": {
+            "raw": 550,
+            "formatted": "550,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "برياني لحم",
+            "en": "etli buryani"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 550,
+            "formatted": "550,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "ملوخية لحم",
+            "en": "etli mulukye"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 550,
+            "formatted": "550,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "اوزي لحم",
+            "en": "perde etli pila"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115026/resized/ea3799a0-5db9-11ef-a40b-69514036b620-HD.jpg",
+          "price": {
+            "raw": 425,
+            "formatted": "425,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "شاكرية",
+            "en": "Shakiriya",
+            "tr": "Şakiriya"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90438/resized/54-HD.jpg",
+          "price": {
+            "raw": 550,
+            "formatted": "550,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كبة لبنية",
+            "en": "Labneh kibbeh",
+            "tr": "Labne içli köfte"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90449/resized/44-HD.jpg",
+          "price": {
+            "raw": 485,
+            "formatted": "485,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "شيش برك",
+            "en": "Shish barak",
+            "tr": "Şiş barak"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90436/resized/23-HD.jpg",
+          "price": {
+            "raw": 485,
+            "formatted": "485,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "يبرق",
+            "en": "grape leaves",
+            "tr": "üzüm yaprağı"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90440/resized/5%2B-HD.jpg",
+          "price": {
+            "raw": 550,
+            "formatted": "550,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كباب هندي",
+            "en": "Indian kebab",
+            "tr": "Hint kebabı"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/111887/resized/1cfac210-4c25-103b-8deb-ff5a02ad2724-HD.jpg",
+          "price": {
+            "raw": 475,
+            "formatted": "475,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "لحمة بالصحن (البندورة )",
+            "en": "Kofta with tomatoes",
+            "tr": "Domatesli köfte"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90444/resized/37-HD.jpg",
+          "price": {
+            "raw": 475,
+            "formatted": "475,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "لحمة بالصحن (طحينة)",
+            "en": "Kofta with tahini",
+            "tr": "Tahinli köfte"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90447/resized/43-HD.jpg",
+          "price": {
+            "raw": 475,
+            "formatted": "475,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "شرحات لحم",
+            "en": "Meat cutlets",
+            "tr": "Et pirzola"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/92507/resized/%D8%B4%D8%B1%D8%AD%D8%A7%D8%AA-%D9%84%D8%AD%D9%85-HD.jpg",
+          "price": {
+            "raw": 500,
+            "formatted": "500,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "فريكة لحم",
+            "en": "Meat freekeh",
+            "tr": "Et freekeh"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115039/resized/406-temp-HD.jpg",
+          "price": {
+            "raw": 600,
+            "formatted": "600,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كبسة  لحم",
+            "en": "A type of food made with Meat and Rice",
+            "tr": "Et ve Pilavla yapılan bir yemek türü"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115040/resized/989-temp-HD.jpg",
+          "price": {
+            "raw": 550,
+            "formatted": "550,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "مندي لحم",
+            "en": "Mandi meat",
+            "tr": "Mandi meat"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115036/resized/364-temp-HD.jpg",
+          "price": {
+            "raw": 550,
+            "formatted": "550,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "منسف اردني",
+            "en": "Jordanian Mansaf",
+            "tr": "Ürdünlü Mansaf"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115051/resized/851-temp-HD.jpg",
+          "price": {
+            "raw": 600,
+            "formatted": "600,0 &#8378;"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2oz",
+      "slug": "oriental-cuisine-chicken-2oz",
+      "title": {
+        "ar": "المطبخ الشرقي (دجاج)",
+        "en": "Oriental cuisine (chicken)",
+        "tr": "Doğu mutfağı (tavuk)"
+      },
+      "productsCount": 6,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115030/resized/887-temp-HD.jpg",
+      "products": [
+        {
+          "title": {
+            "ar": "مقلوبة الدجاج",
+            "en": "tavuklu makluba"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115030/resized/887-temp-HD.jpg",
+          "price": {
+            "raw": 450,
+            "formatted": "450,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "برياني دجاج",
+            "en": "tavuklu buryani"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115102/resized/533-temp-HD.jpg",
+          "price": {
+            "raw": 350,
+            "formatted": "350,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "ملوخية دجاج",
+            "en": "tavuklu mulukye"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 450,
+            "formatted": "450,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "فريكة دجاج",
+            "en": "فريكة دجاج",
+            "tr": "Tavuk freekeh"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115087/resized/808-temp-HD.jpg",
+          "price": {
+            "raw": 350,
+            "formatted": "350,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كبسة دجاج",
+            "en": "Chicken Kabsa",
+            "tr": "Tavuk Kabsa"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115103/resized/675-temp-HD.jpg",
+          "price": {
+            "raw": 350,
+            "formatted": "350,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "مندي دجاج",
+            "en": "Mandi chicken",
+            "tr": "çamur"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115104/resized/787-temp-HD.jpg",
+          "price": {
+            "raw": 350,
+            "formatted": "350,0 &#8378;"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2ow",
+      "slug": "pottery-2ow",
+      "title": {
+        "ar": "الفخارات",
+        "en": "Pottery ",
+        "tr": "Çömlekçilik"
+      },
+      "productsCount": 6,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90808/resized/1%2B-HD.jpg",
+      "products": [
+        {
+          "title": {
+            "ar": "كباب هندي",
+            "en": "Indian kebab",
+            "tr": "Hint kebabı"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90808/resized/1%2B-HD.jpg",
+          "price": {
+            "raw": 475,
+            "formatted": "475,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كيلو كباب هندي",
+            "en": "Indian kebab",
+            "tr": "Hint kebabı"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/92205/resized/1%2B-HD.jpg",
+          "price": {
+            "raw": 1750,
+            "formatted": "1.750,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كيلو لحمة بالصحن  (البندورة )",
+            "en": "Kofta with tomatoes",
+            "tr": "Domatesli köfte"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/92206/resized/37-HD.jpg",
+          "price": {
+            "raw": 1750,
+            "formatted": "1.750,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كيلو لحمة بالصحن  (طحينة)",
+            "en": "Kofta with tahini",
+            "tr": "Tahinli köfte"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/92204/resized/43-HD.jpg",
+          "price": {
+            "raw": 1750,
+            "formatted": "1.750,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "وجبة  لحمة مجرمشة مع كمأة",
+            "en": "Meat cutlets with truffle",
+            "tr": "Mantarlı et Porsiyon"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/99038/resized/82f13c80-9da0-11ee-98b0-aba954da4a68-HD.jpg",
+          "price": {
+            "raw": 750,
+            "formatted": "750,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كيلو  لحمة مجرمشة مع كمأة",
+            "en": "Meat cutlets with truffle",
+            "tr": "Güveçte Mantarlı et 1 kg"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/92515/resized/%D8%B4%D8%B1%D8%AD%D8%A7%D8%AA-%D9%84%D8%AD%D9%85-%D9%85%D8%B9-%D8%A7%D9%84%D9%83%D9%85%D8%A3%D8%A9-HD.jpg",
+          "price": {
+            "raw": 2200,
+            "formatted": "2.200,0 &#8378;"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2p0",
+      "slug": "mansaf-2p0",
+      "title": {
+        "ar": "مناسف",
+        "en": "Mansaf",
+        "tr": "Mansaf "
+      },
+      "productsCount": 5,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/118461/resized/947-temp-HD.jpg",
+      "products": [
+        {
+          "title": {
+            "ar": "منسف حلبي/  5 أشخاص",
+            "en": "mensef extra"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/118461/resized/947-temp-HD.jpg",
+          "price": {
+            "raw": 3000,
+            "formatted": "3.000,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "منسف فريك باللحم /  4 أشخاص",
+            "en": "Mansaf grits with meat / 4 people",
+            "tr": "Mansaf etli irmik / 4 kişi"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90467/resized/30-HD.jpg",
+          "price": {
+            "raw": 2400,
+            "formatted": "2.400,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "منسف أرز باللحم/  5 أشخاص",
+            "en": "Mansaf rice with meat/4 people",
+            "tr": "Mansaf rice with meat/4 people"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/111888/resized/fbe9f2c0-4da1-103b-8deb-ff5a02ad2724-HD.jpg",
+          "price": {
+            "raw": 2400,
+            "formatted": "2.400,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "منسف أرز بالدجاج/  5 أشخاص",
+            "en": "Mansaf rice with chicken/4 people",
+            "tr": "Mansaf pilavı tavuklu/4 kişilik"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115055/resized/672-temp-HD.jpg",
+          "price": {
+            "raw": 1800,
+            "formatted": "1.800,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "منسف فريك بالدجاج/  5 أشخاص",
+            "en": "Mansaf freekeh with chicken/4 people",
+            "tr": "Mansaf freekeh tavuklu/4 kişilik"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90463/resized/369458828_864747668453567_3494793557116824279_n-HD.jpg",
+          "price": {
+            "raw": 1800,
+            "formatted": "1.800,0 &#8378;"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2ov",
+      "slug": "meat-dough-2ov",
+      "title": {
+        "ar": "الصفائح",
+        "en": "meat dough",
+        "tr": "etli pide"
+      },
+      "productsCount": 15,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115238/resized/548-temp-HD.jpg",
+      "products": [
+        {
+          "title": {
+            "ar": "وجبة شرحات لحم  عالعجين",
+            "en": "Meat cutlets on dough meal",
+            "tr": "Yoğurtlu Hamwi hamurlu Lahm"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115238/resized/548-temp-HD.jpg",
+          "price": {
+            "raw": 525,
+            "formatted": "525,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كيلو شرحات لحم  عالعجين",
+            "en": "Meat cutlets on dough meal",
+            "tr": "Yoğurtlu Hamwi hamurlu Lahm"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/91736/resized/67b8e6ca-a16b-4e39-aca5-9a2c3ff176e4-HD.jpg",
+          "price": {
+            "raw": 1900,
+            "formatted": "1.900,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "وجبة لحمة مجرمشة سادة",
+            "en": "Plain meat grinder meal",
+            "tr": "Yoğurtlu Hamwi hamurlu Lahm"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/91741/resized/%D9%84%D8%AD%D9%85-%D8%A8%D8%B9%D8%AC%D9%8A%D9%86---HD.jpg",
+          "price": {
+            "raw": 450,
+            "formatted": "450,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كيلو لحمة مجرمشة سادة",
+            "en": "One kilo of plain minced meat",
+            "tr": "Yoğurtlu Hamwi hamurlu Lahm"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90390/resized/%D9%84%D8%AD%D9%85-%D8%A8%D8%B9%D8%AC%D9%8A%D9%86---HD.jpg",
+          "price": {
+            "raw": 1600,
+            "formatted": "1.600,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "وجبة لحم بعجين حلبي",
+            "en": "Meat meal with Aleppo dough (yoghurt)",
+            "tr": "Halep hamuruyla et yemeği (yoğurt)"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/111890/resized/64e96050-5318-103b-8deb-ff5a02ad2724-HD.jpg",
+          "price": {
+            "raw": 300,
+            "formatted": "300,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كيلو لحم بعجين حلبي",
+            "en": "One kilo of meat with Aleppo dough (yoghurt)",
+            "tr": "كيلو لحم بعجين حلبي (لبن)"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/91737/resized/f4e26460-2796-4ee1-a752-16c10c606916-HD.jpg",
+          "price": {
+            "raw": 1200,
+            "formatted": "1.200,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "وجبة لحم بعجين حموي (لبن)",
+            "en": "Meat meal with Hamwi dough (yogurt)",
+            "tr": "Yoğurtlu Hamwi hamurlu Lahm"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/111891/resized/a72d6880-5557-103b-8deb-ff5a02ad2724-HD.jpg",
+          "price": {
+            "raw": 300,
+            "formatted": "300,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كيلو لحم بعجين حموي",
+            "en": "One kilo of meat with Hamwi dough (yogurt)",
+            "tr": "Yoğurtlu Hamwi hamurlu Lahm"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90387/resized/d8fbeac7-a485-4ef2-a094-1ae30117d5cd-HD.jpg",
+          "price": {
+            "raw": 1300,
+            "formatted": "1.300,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "وجبة لحم بعجين حموي",
+            "en": "Meat with Hamoui dough (vegetables)",
+            "tr": "Hamoui hamurlu et (sebze)"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90385/resized/adb08476-53c7-445a-b975-6895d1ac25dc-HD.jpg",
+          "price": {
+            "raw": 300,
+            "formatted": "300,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كيلو لحم بعجين حموي (خضار)",
+            "en": "One kilo of meat with Hamwi dough (vegetables)",
+            "tr": "Hamwi hamuruyla bir kilo et (sebze)"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/91739/resized/adb08476-53c7-445a-b975-6895d1ac25dc-HD.jpg",
+          "price": {
+            "raw": 1300,
+            "formatted": "1.300,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "وجبة صفيحة شامية (لبن)",
+            "en": "Sfiha Shamiya meal (yogurt)",
+            "tr": "صفيحة شامية لبن"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115014/resized/659-temp-HD.jpg",
+          "price": {
+            "raw": 300,
+            "formatted": "300,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "وجبة صفيحة شامية (بندورة)",
+            "en": "",
+            "tr": "Sfiha Shamiya Yemeği (Domates)"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115016/resized/666-temp-HD.jpg",
+          "price": {
+            "raw": 300,
+            "formatted": "300,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كيلو صفيحة شامية",
+            "en": "",
+            "tr": "Kilo sfiha shamiya (domates)"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90370/resized/369458828_864747668453567_3494793557116824279_n-HD.jpg",
+          "price": {
+            "raw": 1250,
+            "formatted": "1.250,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "وجبة لحمة سادة ع العجين",
+            "en": "Plain meat",
+            "tr": "لحمة سادة "
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90402/resized/%D9%84%D8%AD%D9%85-%D8%A8%D8%B9%D8%AC%D9%8A%D9%86%2B-HD.jpg",
+          "price": {
+            "raw": 300,
+            "formatted": "300,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "وجبة لحمة سادة ع العجين مع قشقوان",
+            "en": "Plain meat on dough with kashkaval",
+            "tr": "Plain meat on dough with kashkaval"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90405/resized/%D9%84%D8%AD%D9%85-%D8%A8%D8%B9%D8%AC%D9%8A%D9%86--HD.jpg",
+          "price": {
+            "raw": 375,
+            "formatted": "375,0 &#8378;"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2ou",
+      "slug": "dough-2ou",
+      "title": {
+        "ar": "الفطائر",
+        "en": "Dough",
+        "tr": "Pide"
+      },
+      "productsCount": 10,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90338/resized/6%2B-HD.jpg",
+      "products": [
+        {
+          "title": {
+            "ar": "زعتر \t",
+            "en": "zaatar ",
+            "tr": "zaatar"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90338/resized/6%2B-HD.jpg",
+          "price": {
+            "raw": 30,
+            "formatted": "30,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "محمرة \t",
+            "en": "Muhammara ",
+            "tr": "Muhammara"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/97662/resized/21-%281%29-HD.jpg",
+          "price": {
+            "raw": 30,
+            "formatted": "30,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "جبنة شامية \t",
+            "en": "Levantine cheese ",
+            "tr": "Damascus cheese"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90344/resized/8%2B-HD.jpg",
+          "price": {
+            "raw": 35,
+            "formatted": "35,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "محمرة+زعتر \t",
+            "en": "Muhammara + thyme ",
+            "tr": "Muhammara + kekik "
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90346/resized/12-HD.jpg",
+          "price": {
+            "raw": 35,
+            "formatted": "35,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "زعتر مع خضار \t",
+            "en": "Thyme with vegetables",
+            "tr": "Sebzeli kekik"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90354/resized/34-HD.jpg",
+          "price": {
+            "raw": 35,
+            "formatted": "35,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "سنفورة",
+            "en": "Smurfette",
+            "tr": "Şirine"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90356/resized/47-HD.jpg",
+          "price": {
+            "raw": 45,
+            "formatted": "45,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "قشقوان \t",
+            "en": "Qashqawan",
+            "tr": "Kaşkavan"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/97652/resized/%D9%82%D8%B4%D9%82%D9%88%D8%A7%D9%86-HD.jpg",
+          "price": {
+            "raw": 35,
+            "formatted": "35,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "محمرة + قشقوان \t",
+            "en": "Muhammara + Kashkaval ",
+            "tr": "Muhammara + Kaşkaval"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90364/resized/7%2B-HD.jpg",
+          "price": {
+            "raw": 40,
+            "formatted": "40,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "زعتر + قشقوان \t",
+            "en": "Thyme + kashkaval ",
+            "tr": "Kekik + kaşar"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/97654/resized/%D8%B2%D8%B9%D8%AA%D8%B1-%D9%85%D8%B9-%D9%82%D8%B4%D9%82%D9%88%D8%A7%D9%86-HD.jpg",
+          "price": {
+            "raw": 40,
+            "formatted": "40,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "زعتر مع خضار \t",
+            "en": "Thyme with vegetables",
+            "tr": "Kekik + kaşar"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/92526/resized/%D8%B2%D8%B9%D8%AA%D8%B1-%D8%A8%D8%A7%D9%84%D8%AE%D8%B6%D8%A7%D8%B1-HD.jpg",
+          "price": {
+            "raw": 35,
+            "formatted": "35,0 &#8378;"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2ot",
+      "slug": "pizza-2ot",
+      "title": {
+        "ar": "بيتزا",
+        "en": "Pizza ",
+        "tr": "Pizza"
+      },
+      "productsCount": 15,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/entities/90250/resized/9P3MafewuSeyRJUT1BzBJAcsg6CsNz-metaMzY5NDU4ODI4Xzg2NDc0NzY2ODQ1MzU2N18zNDk0NzkzNTU3MTE2ODI0Mjc5X24uanBn--512.png",
+      "products": [
+        {
+          "title": {
+            "ar": "بيتزا سواريه صغيرة"
+          },
+          "description": {
+            "ar": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 50,
+            "formatted": "50,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بيتزا الفصول الاربعة (كبير)",
+            "en": "Dört Mevsim Pizza",
+            "tr": "Dört Mevsim Pizza (Büyük)"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90314/resized/25-HD.jpg",
+          "price": {
+            "raw": 260,
+            "formatted": "260,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بيتزا الفصول الاربعة (وسط)",
+            "en": "Four Seasons Pizza (Medium)",
+            "tr": "بيتزا الفصول الاربعة (وسط)"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90767/resized/25-HD.jpg",
+          "price": {
+            "raw": 225,
+            "formatted": "225,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بيتزا مرغريتا (كبير)",
+            "en": "Margherita Pizza (Large)",
+            "tr": "Pizza Margherita"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90317/resized/26-HD.jpg",
+          "price": {
+            "raw": 260,
+            "formatted": "260,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بيتزا مرغريتا (وسط)",
+            "en": "Margherita Pizza (Medium)",
+            "tr": "Pizza Margherita"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90769/resized/26-HD.jpg",
+          "price": {
+            "raw": 225,
+            "formatted": "225,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بيتزا لحم (كبير)",
+            "en": "Meat Pizza (Large)",
+            "tr": "Pizza Margherita"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90320/resized/24-HD.jpg",
+          "price": {
+            "raw": 350,
+            "formatted": "350,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بيتزا لحم (وسط)",
+            "en": "Meat Pizza (Medium)",
+            "tr": "Pizza Margherita"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90827/resized/24-HD.jpg",
+          "price": {
+            "raw": 285,
+            "formatted": "285,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بيتزا ذرة (كبير)",
+            "en": "Corn Pizza (Large)",
+            "tr": "Mısırlı Pizza (Büyük)"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90323/resized/28-HD.jpg",
+          "price": {
+            "raw": 260,
+            "formatted": "260,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بيتزا ذرة (وسط)",
+            "en": "Corn Pizza (Medium)",
+            "tr": "Mısır pizzası"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90828/resized/28-HD.jpg",
+          "price": {
+            "raw": 225,
+            "formatted": "225,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بيتزا بيبروني (كبير)",
+            "en": "Pepperoni Pizza (Large)",
+            "tr": "Pizza Margherita"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/109767/resized/a1541320-1693-11ef-a74f-9f425de82da9-HD.jpg",
+          "price": {
+            "raw": 260,
+            "formatted": "260,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بيتزا بيبروني (وسط)",
+            "en": "Pepperoni Pizza (Medium)",
+            "tr": "Pizza Margherita"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90831/resized/27-HD.jpg",
+          "price": {
+            "raw": 225,
+            "formatted": "225,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بيتزا شيش (كبير)",
+            "en": "Shish Pizza (Large)",
+            "tr": "Pizza Margherita"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90329/resized/29-HD.jpg",
+          "price": {
+            "raw": 310,
+            "formatted": "310,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بيتزا شيش (وسط)",
+            "en": "Shish Pizza (Medium)",
+            "tr": "Pizza Margherita"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90832/resized/29-HD.jpg",
+          "price": {
+            "raw": 260,
+            "formatted": "260,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بيتزا تازة (كبير)",
+            "en": "Taza Pizza (Large)",
+            "tr": "Taze pizza"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90332/resized/369458828_864747668453567_3494793557116824279_n-HD.jpg",
+          "price": {
+            "raw": 310,
+            "formatted": "310,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بيتزا تازة (وسط)",
+            "en": "Taza Pizza (Medium)",
+            "tr": "Taze pizza"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/90834/resized/369458828_864747668453567_3494793557116824279_n-HD.jpg",
+          "price": {
+            "raw": 260,
+            "formatted": "260,0 &#8378;"
+          }
+        }
+      ]
+    },
+    {
+      "id": "35m",
+      "slug": "western-cuisine-35m",
+      "title": {
+        "ar": "قسم الغربي",
+        "en": "western cuisine",
+        "tr": "dünya mutfağı batı"
+      },
+      "productsCount": 8,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/entities/90250/resized/9P3MafewuSeyRJUT1BzBJAcsg6CsNz-metaMzY5NDU4ODI4Xzg2NDc0NzY2ODQ1MzU2N18zNDk0NzkzNTU3MTE2ODI0Mjc5X24uanBn--512.png",
+      "products": [
+        {
+          "title": {
+            "ar": "كوردون بلو",
+            "en": "cordon bleu",
+            "tr": "kordon bleu"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 420,
+            "formatted": "420,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "بيستو كوردون بلو",
+            "en": "pesto cordon bleu",
+            "tr": "pesto cordon bleu"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 420,
+            "formatted": "420,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "اسكالوب",
+            "en": "schnitzel",
+            "tr": "şintizel"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/111897/resized/3fb9c1f0-2369-103b-8deb-ff5a02ad2724-HD.jpg",
+          "price": {
+            "raw": 360,
+            "formatted": "360,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "سويت تشيلي تشكن",
+            "en": "Chili sweet  chicken",
+            "tr": "Chili sweet  chicken"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 380,
+            "formatted": "380,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "دجاج مع فطر وكريما",
+            "en": "Chicken mushroom cream",
+            "tr": "Kremalı mantarlı tavuk"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 390,
+            "formatted": "390,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "فاهيتا دجاج",
+            "en": "chicken vajita",
+            "tr": "tavuklu fajita"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 375,
+            "formatted": "375,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "فاهيتا لحم",
+            "en": "meat fajita",
+            "tr": "etli fajita"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 550,
+            "formatted": "550,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "تشيز تشكن فرايز",
+            "en": "cheese chicken fries"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.com/images/product-cover.png?ver=1",
+          "price": {
+            "raw": 250,
+            "formatted": "250,0 &#8378;"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2p3",
+      "slug": "drinks-2p3",
+      "title": {
+        "ar": "المشروبات",
+        "en": "Drinks ",
+        "tr": "İçecekler "
+      },
+      "productsCount": 10,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115241/resized/295-temp-HD.jpg",
+      "products": [
+        {
+          "title": {
+            "ar": "عيران  صغير",
+            "en": "Small ayran",
+            "tr": "Küçük ayran"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115241/resized/295-temp-HD.jpg",
+          "price": {
+            "raw": 25,
+            "formatted": "25,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "كولا تركي",
+            "en": "Kola",
+            "tr": "kola"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115232/resized/439-temp-HD.jpg",
+          "price": {
+            "raw": 40,
+            "formatted": "40,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "سفن آب 330",
+            "en": "7Up 330",
+            "tr": "7Up 330"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115233/resized/245-temp-HD.jpg",
+          "price": {
+            "raw": 40,
+            "formatted": "40,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "فانتا 330",
+            "en": "Fanta 330",
+            "tr": "Fanta 330"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115234/resized/333-temp-HD.jpg",
+          "price": {
+            "raw": 40,
+            "formatted": "40,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "صودا",
+            "en": "Soda",
+            "tr": "Soda"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115236/resized/29-temp-HD.jpg",
+          "price": {
+            "raw": 30,
+            "formatted": "30,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "ماء",
+            "en": "water",
+            "tr": "water"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115237/resized/49-temp-HD.jpg",
+          "price": {
+            "raw": 15,
+            "formatted": "15,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "قهوة",
+            "en": "coffee",
+            "tr": "Kahve"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115242/resized/861-temp-HD.jpg",
+          "price": {
+            "raw": 50,
+            "formatted": "50,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "شاي",
+            "en": "tea",
+            "tr": "çay"
+          },
+          "description": {
+            "ar": null,
+            "en": null,
+            "tr": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115239/resized/63-temp-HD.jpg",
+          "price": {
+            "raw": 20,
+            "formatted": "20,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "شلغم",
+            "en": "şalğam"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115235/resized/590-temp-HD.jpg",
+          "price": {
+            "raw": 25,
+            "formatted": "25,0 &#8378;"
+          }
+        },
+        {
+          "title": {
+            "ar": "تشورشيل",
+            "en": "çörçil"
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/115427/resized/742-temp-HD.jpg",
+          "price": {
+            "raw": 50,
+            "formatted": "50,0 &#8378;"
+          }
+        }
+      ]
+    },
+    {
+      "id": "39x",
+      "slug": "alhloyat-39x",
+      "title": {
+        "ar": "الحلويات",
+        "en": "tatlilar "
+      },
+      "productsCount": 1,
+      "categoryImg": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/116352/resized/photo_2024-09-01_14-36-27-HD.jpg",
+      "products": [
+        {
+          "title": {
+            "ar": "مهلبية ",
+            "en": "mühalebiye "
+          },
+          "description": {
+            "ar": null,
+            "en": null
+          },
+          "img": "https://trybany.s3.eu-central-1.amazonaws.com/uploads/products/116352/resized/photo_2024-09-01_14-36-27-HD.jpg",
+          "price": {
+            "raw": 80,
+            "formatted": "80,0 &#8378;"
+          }
+        }
+      ]
+    }
+  ]
+}
