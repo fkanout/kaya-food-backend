@@ -51,14 +51,15 @@ export const constructCategoryProducts = async (restaurantURL: RestaurantURL, ca
     }   
 }
 
-export const extractRestaurantCategories = async (restaurantURL: RestaurantURL, rawCategories: Category[])=>{
+export const extractRestaurantCategories = async (restaurantURL: RestaurantURL, rawCategories: Category[], restaurantCoverImgURL: string | null)=>{
     if (!rawCategories){
         throw ("No categories data")
     }
     const categories = await Promise.all(rawCategories.map(
         async (category)=> {
         const products = await constructCategoryProducts(restaurantURL, category.slug);
-        
+        const img = products[0]?.media.cover?.endsWith("/product-cover.png?ver=1") ? restaurantCoverImgURL :  products[0]?.media.cover;
+
         return {
             id: category.idString,
             slug: category.slug,
@@ -69,7 +70,7 @@ export const extractRestaurantCategories = async (restaurantURL: RestaurantURL, 
             },
          
             productsCount: products?.length,
-            categoryImg: products[0]?.media.cover || products[0]?.media.logo,
+            categoryImg: img,
             products: products?.map((product)=>({
                 title: {
                     ar: product.translations[0]?.title,
@@ -81,7 +82,7 @@ export const extractRestaurantCategories = async (restaurantURL: RestaurantURL, 
                     en: product.translations[1]?.description,
                     tr: product.translations[2]?.description,
                 },
-                img: product.media.cover || product.media.logo,
+                img: img,
                 price: product.price,
                 
             }))
@@ -96,7 +97,7 @@ export const constructRestaurant = async (restaurantURL: RestaurantURL)=>{
     const restaurantRawData = await fetchJsonFromScriptTag(restaurantURL);
     if (!restaurantRawData) throw ("No raw data");
     const restaurantInfo = extractRestaurantInfo(restaurantRawData.entity);
-    const restaurantCategories = await extractRestaurantCategories(restaurantURL, restaurantRawData.categories);
+    const restaurantCategories = await extractRestaurantCategories(restaurantURL, restaurantRawData.categories, restaurantInfo.logo);
     const restaurant = ({...restaurantInfo, categories: restaurantCategories});
     return restaurant
 }
