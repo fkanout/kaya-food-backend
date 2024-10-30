@@ -91,16 +91,16 @@ type Category = {
     id: string;
     slug: string;
     title: {
-      ar?: string;
-      en?: string;
-      tr?: string;
+        ar?: string;
+        en?: string;
+        tr?: string;
     };
     productsCount: number;
     categoryImg: string | null;
     products: Product[];
-  };
-  
-  type Product = {
+};
+
+type Product = {
     id: string;
     title: {
         ar?: string;
@@ -117,27 +117,26 @@ type Category = {
         formatted: string;
     };
     img: string | null;
-  };
+};
 
 export type Restaurant = {
     id: string;
     restaurantTitle: {
-      ar?: string;
-      en?: string;
-      tr?: string;
+        ar?: string;
+        en?: string;
+        tr?: string;
     };
     whatsappPhoneNumber: string;
     socialMediaUrls: {
-      tiktok?: string;
-      twitter?: string;
-      facebook?: string;
-      instagram?: string;
-      googleMapsLink?: string;
+        tiktok?: string;
+        twitter?: string;
+        facebook?: string;
+        instagram?: string;
+        googleMapsLink?: string;
     };
     updatedAt: number;
     logo: string | null;
     cover: string | null;
     categories: Category[];
-  };
-  
- 
+};
+

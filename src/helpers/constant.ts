@@ -13,7 +13,6 @@ export const RESTAURANTS_URL = {
     TAZEH_KASAP_KAYA: `https://app.trybany.com/${RESTAURANTS_IDS.TAZEH_KASAP_KAYA}`,
     KARADISH: `https://app.trybany.com/${RESTAURANTS_IDS.KARADISH}`,
     HAWA_MAHAL: `https://app.trybany.com/${RESTAURANTS_IDS.HAWA_MAHAL}`,
-  } as const;
-  
-  
-  
+} as const;
+
+

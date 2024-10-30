@@ -3,7 +3,7 @@ import * as cheerio from 'cheerio';
 import { RawCategory, Entity, RawRestaurant, RestaurantId, RestaurantURL, Restaurant } from "./types";
 import path from "path";
 
- 
+
 async function fetchJsonFromScriptTag(url: string): Promise<RawRestaurant | null> {
     try {
         const response = await axios.get(url);
@@ -16,14 +16,14 @@ async function fetchJsonFromScriptTag(url: string): Promise<RawRestaurant | null
         } else {
             throw new Error("Script tag with id='next data' not found or empty.");
         }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
         console.error("Error fetching JSON:", error.message);
         return null;
     }
 }
-export const extractRestaurantInfo = (rawEntity: Entity | null, restaurantId: string)=>{
-    if (!rawEntity){
+export const extractRestaurantInfo = (rawEntity: Entity | null, restaurantId: string) => {
+    if (!rawEntity) {
         throw ("No restaurant data")
     }
     const entity = {
@@ -41,65 +41,65 @@ export const extractRestaurantInfo = (rawEntity: Entity | null, restaurantId: st
     }
     return entity
 }
-export const constructCategoryProducts = async (restaurantURL: RestaurantURL, categorySlug: string)=>{
+export const constructCategoryProducts = async (restaurantURL: RestaurantURL, categorySlug: string) => {
     try {
-        const rawProduct = await fetchJsonFromScriptTag(path.join(restaurantURL,"categories", categorySlug, "products"))
+        const rawProduct = await fetchJsonFromScriptTag(path.join(restaurantURL, "categories", categorySlug, "products"))
         return rawProduct?.products || [];
     } catch (error) {
         console.log(error);
         return []
-    }   
+    }
 }
 
-export const extractRestaurantCategories = async (restaurantURL: RestaurantURL, rawCategories: RawCategory[], restaurantCoverImgURL: string | null)=>{
-    if (!rawCategories){
+export const extractRestaurantCategories = async (restaurantURL: RestaurantURL, rawCategories: RawCategory[], restaurantCoverImgURL: string | null) => {
+    if (!rawCategories) {
         throw ("No categories data")
     }
     const categories = await Promise.all(rawCategories.map(
-        async (category)=> {
-        const products = await constructCategoryProducts(restaurantURL, category.slug);
-        const img = products[0]?.media.cover?.endsWith("/product-cover.png?ver=1") ? restaurantCoverImgURL :  products[0]?.media.cover;
+        async (category) => {
+            const products = await constructCategoryProducts(restaurantURL, category.slug);
+            const img = products[0]?.media.cover?.endsWith("/product-cover.png?ver=1") ? restaurantCoverImgURL : products[0]?.media.cover;
 
-        return {
-            id: category.idString,
-            slug: category.slug,
-            title: {
-                ar: category.translations[0]?.title,
-                en: category.translations[1]?.title,
-                tr: category.translations[2]?.title,
-            },
-         
-            productsCount: products?.length,
-            categoryImg: img,
-            products: products?.map((product)=>({
-                id: product.idString,
+            return {
+                id: category.idString,
+                slug: category.slug,
                 title: {
-                    ar: product.translations[0]?.title,
-                    en: product.translations[1]?.title,
-                    tr: product.translations[2]?.title,
+                    ar: category.translations[0]?.title,
+                    en: category.translations[1]?.title,
+                    tr: category.translations[2]?.title,
                 },
-                description: {
-                    ar: product.translations[0]?.description,
-                    en: product.translations[1]?.description,
-                    tr: product.translations[2]?.description,
-                },
-                img: product.media.cover || img,
-                price: product.price,
-                
-            }))
-        }
-    }));
+
+                productsCount: products?.length,
+                categoryImg: img,
+                products: products?.map((product) => ({
+                    id: product.idString,
+                    title: {
+                        ar: product.translations[0]?.title,
+                        en: product.translations[1]?.title,
+                        tr: product.translations[2]?.title,
+                    },
+                    description: {
+                        ar: product.translations[0]?.description,
+                        en: product.translations[1]?.description,
+                        tr: product.translations[2]?.description,
+                    },
+                    img: product.media.cover || img,
+                    price: product.price,
+
+                }))
+            }
+        }));
     return categories
 }
 
 
 
-export const constructRestaurant = async (restaurantURL: RestaurantURL, restaurantId: RestaurantId): Promise<Restaurant> =>{
+export const constructRestaurant = async (restaurantURL: RestaurantURL, restaurantId: RestaurantId): Promise<Restaurant> => {
     const restaurantRawData = await fetchJsonFromScriptTag(restaurantURL);
     if (!restaurantRawData) throw ("No raw data");
     const restaurantInfo = extractRestaurantInfo(restaurantRawData.entity, restaurantId);
     const restaurantCategories = await extractRestaurantCategories(restaurantURL, restaurantRawData.categories, restaurantInfo.logo);
-    const restaurant = ({...restaurantInfo, categories: restaurantCategories});
+    const restaurant = ({ ...restaurantInfo, categories: restaurantCategories });
     return restaurant
 }
 
