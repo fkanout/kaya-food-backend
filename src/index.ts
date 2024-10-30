@@ -1,7 +1,8 @@
-const world = 'world';
+import { constructRestaurant } from "./helpers/bany";
+import { RESTAURANTS } from "./helpers/constant";
 
-export function hello(who: string = world): string {
-  return `Hello Faisal faisal  test${who}! `;
-}
+(async ()=>{
+  const restaurant = await  constructRestaurant(RESTAURANTS.HAWA_MAHAL);
+  console.log(restaurant.categories);
 
-console.log(hello("kanout"));
+})()
