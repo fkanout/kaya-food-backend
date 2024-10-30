@@ -78,4 +78,6 @@ const jsonData = {
 };
 
 // Call the function to set up the remote and push the single file
-setupRemoteWithSingleFile(jsonData, 'data.json', 'Add data.json with in-memory JSON content');
+export const testGit = ()=> {
+  setupRemoteWithSingleFile(jsonData, 'data.json', 'Add data.json with in-memory JSON content');
+}
