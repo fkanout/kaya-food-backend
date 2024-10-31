@@ -5,10 +5,11 @@ export const RESTAURANTS_IDS = {
     KARADISH: "mtaam-kradysh-15l",
     HAWA_MAHAL: "hawa-mahall-a",
     ATA: "alata-et-f",
+    BEIT_BEYRUT: "beitbeyrutgn"
 } as const
 
 
-export const RESTAURANTS_URL = {
+export const RESTAURANTS_URL_BANY = {
     BLUDAN_KAYA: `https://app.trybany.com/${RESTAURANTS_IDS.BLUDAN_KAYA}`,
     FALAFEL_SARAYI: `https://app.trybany.com/${RESTAURANTS_IDS.FALAFEL_SARAYI}`,
     TAZEH_KASAP_KAYA: `https://app.trybany.com/${RESTAURANTS_IDS.TAZEH_KASAP_KAYA}`,
@@ -18,3 +19,6 @@ export const RESTAURANTS_URL = {
 } as const;
 
 
+export const RESTAURANTS_URL_QRLIST = {
+    BEIT_BEYRUT: `https://qrlist.app/api/category?store_id=93&store_type_id=1&limit=100&app_locale=ar`,
+} as const;

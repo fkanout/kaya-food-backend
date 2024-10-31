@@ -1,7 +1,8 @@
 import axios from "axios";
 import * as cheerio from 'cheerio';
-import { RawCategory, Entity, RawRestaurant, RestaurantId, RestaurantURL, Restaurant } from "./types";
+import { RawCategory, Entity, RawRestaurant, RestaurantId, RestaurantURL } from "./types";
 import path from "path";
+import { Restaurant } from "../types";
 
 
 async function fetchJsonFromScriptTag(url: string): Promise<RawRestaurant | null> {
@@ -84,7 +85,7 @@ export const extractRestaurantCategories = async (restaurantURL: RestaurantURL, 
                         tr: product.translations[2]?.description,
                     },
                     img: product.media.cover || img,
-                    price: product.price,
+                    price: product.price.raw,
 
                 }))
             }

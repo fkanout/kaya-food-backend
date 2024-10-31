@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Restaurant } from './types';
 
 
+
 const GITHUB_USERNAME = 'fkanout';
 const REPO_NAME = 'kaya-food';
 const BRANCH = 'main';
@@ -32,6 +33,7 @@ export const pushFileToGitHub = async (fileContent: Restaurant, fileName: string
         content: encodedContent,
         branch: BRANCH,
         sha: fileSha, // Include SHA if updating an existing file
+        force: true
       },
       {
         headers: {
