@@ -4,6 +4,7 @@ export const RESTAURANTS_IDS = {
     TAZEH_KASAP_KAYA: "taze-kasap-et-lokantasi-19a",
     KARADISH: "mtaam-kradysh-15l",
     HAWA_MAHAL: "hawa-mahall-a",
+    ATA: "alata-et-f",
 } as const
 
 
@@ -13,6 +14,7 @@ export const RESTAURANTS_URL = {
     TAZEH_KASAP_KAYA: `https://app.trybany.com/${RESTAURANTS_IDS.TAZEH_KASAP_KAYA}`,
     KARADISH: `https://app.trybany.com/${RESTAURANTS_IDS.KARADISH}`,
     HAWA_MAHAL: `https://app.trybany.com/${RESTAURANTS_IDS.HAWA_MAHAL}`,
+    ATA: `https://app.trybany.com/${RESTAURANTS_IDS.ATA}`,
 } as const;
 
 

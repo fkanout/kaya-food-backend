@@ -18,4 +18,7 @@ import { pushFileToGitHub } from "./helpers/github";
 
   const restaurant_HAWA_MAHAL = await constructRestaurant(RESTAURANTS_URL.HAWA_MAHAL, RESTAURANTS_IDS.HAWA_MAHAL);
   pushFileToGitHub(restaurant_HAWA_MAHAL, restaurant_HAWA_MAHAL.id);
+
+  const restaurant_ATA = await constructRestaurant(RESTAURANTS_URL.ATA, RESTAURANTS_IDS.ATA);
+  pushFileToGitHub(restaurant_ATA, restaurant_ATA.id);
 })()

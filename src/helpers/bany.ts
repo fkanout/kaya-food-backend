@@ -29,9 +29,9 @@ export const extractRestaurantInfo = (rawEntity: Entity | null, restaurantId: st
     const entity = {
         id: restaurantId,
         restaurantTitle: {
-            ar: rawEntity.translations[0]?.title,
-            en: rawEntity.translations[1]?.title,
-            tr: rawEntity.translations[2]?.title,
+            ar: rawEntity.translations[0]?.title.trim(),
+            en: rawEntity.translations[1]?.title.trim(),
+            tr: rawEntity.translations[2]?.title.trim(),
         },
         whatsappPhoneNumber: rawEntity.whatsappPhoneNumber,
         socialMediaUrls: rawEntity.socialMediaUrls,
@@ -64,9 +64,9 @@ export const extractRestaurantCategories = async (restaurantURL: RestaurantURL, 
                 id: category.idString,
                 slug: category.slug,
                 title: {
-                    ar: category.translations[0]?.title,
-                    en: category.translations[1]?.title,
-                    tr: category.translations[2]?.title,
+                    ar: category.translations[0]?.title.trim(),
+                    en: category.translations[1]?.title.trim(),
+                    tr: category.translations[2]?.title.trim(),
                 },
 
                 productsCount: products?.length,
@@ -74,9 +74,9 @@ export const extractRestaurantCategories = async (restaurantURL: RestaurantURL, 
                 products: products?.map((product) => ({
                     id: product.idString,
                     title: {
-                        ar: product.translations[0]?.title,
-                        en: product.translations[1]?.title,
-                        tr: product.translations[2]?.title,
+                        ar: product.translations[0]?.title.trim(),
+                        en: product.translations[1]?.title.trim(),
+                        tr: product.translations[2]?.title.trim(),
                     },
                     description: {
                         ar: product.translations[0]?.description,
