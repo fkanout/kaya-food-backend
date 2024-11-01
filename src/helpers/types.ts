@@ -45,5 +45,6 @@ export type Restaurant = {
     updatedAt: number;
     logo: string | null;
     cover: string | null;
+    coverColor?: string | null;
     categories: Category[];
 };

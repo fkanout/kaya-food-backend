@@ -1,6 +1,7 @@
 import { constructRestaurant } from "./helpers/bany/bany";
-import { RESTAURANTS_IDS, RESTAURANTS_URL_BANY, RESTAURANTS_URL_QRLIST } from "./helpers/constant";
+import { RESTAURANTS_IDS, RESTAURANTS_URL_BANY, RESTAURANTS_URL_LAMAZ, RESTAURANTS_URL_QRLIST } from "./helpers/constant";
 import { pushFileToGitHub } from "./helpers/github";
+import { constructLamazRestaurant } from "./helpers/lamaz";
 import { constructQRListRestaurant } from "./helpers/qrlist/qrlist";
 
 (async () => {
@@ -30,11 +31,13 @@ import { constructQRListRestaurant } from "./helpers/qrlist/qrlist";
     pushFileToGitHub(restaurant_BEIT_BEYRUT, restaurant_BEIT_BEYRUT.id);
   }
 
-
+  const saveLamazRestaurants = async () => {
+    const restaurant_SAJ = await constructLamazRestaurant(RESTAURANTS_URL_LAMAZ.SAJ, RESTAURANTS_IDS.SAJ)
+    pushFileToGitHub(restaurant_SAJ, restaurant_SAJ.id);
+  }
 
   await saveBanyRestaurants();
   await saveQRListRestaurants();
-
-
+  await saveLamazRestaurants();
 
 })()

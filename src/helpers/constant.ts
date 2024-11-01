@@ -5,7 +5,8 @@ export const RESTAURANTS_IDS = {
     KARADISH: "mtaam-kradysh-15l",
     HAWA_MAHAL: "hawa-mahall-a",
     ATA: "alata-et-f",
-    BEIT_BEYRUT: "beitbeyrutgn"
+    BEIT_BEYRUT: "beitbeyrutgn",
+    SAJ: "saj_falafel_pide"
 } as const
 
 
@@ -21,4 +22,8 @@ export const RESTAURANTS_URL_BANY = {
 
 export const RESTAURANTS_URL_QRLIST = {
     BEIT_BEYRUT: `https://qrlist.app/api/category?store_id=93&store_type_id=1&limit=100&app_locale=ar`,
+} as const;
+
+export const RESTAURANTS_URL_LAMAZ = {
+    SAJ: `https://saj.macho.menu/ar/osxzw-2fzue-tqqym`,
 } as const;
