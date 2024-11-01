@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import path from 'path';
+import { RESTAURANTS_IDS } from '../constant';
 export type Product = {
     id: string;
     title: {
@@ -169,7 +170,7 @@ export const constructLamazRestaurant = async (restaurantURL: string, restaurant
     let restaurantTitle = {}
     let whatsappPhoneNumber = ""
 
-    if (restaurantId === "osxzw-2fzue-tqqym") {
+    if (restaurantId === RESTAURANTS_IDS.SAJ) {
         restaurantTitle = {
             ar: "صاج",
             en: "SAJ",
