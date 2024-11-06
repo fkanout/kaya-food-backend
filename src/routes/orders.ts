@@ -39,17 +39,6 @@ export default async function ordersRoute(server: FastifyInstance) {
             },
             required: ['restaurantId', 'items']
         },
-        response: {
-            200: {
-                type: 'object',
-                properties: {
-                    success: {
-                        type: 'boolean'
-                    },
-                },
-                required: ['success'],
-            }
-        }
     }
     server.post('/orders', { preHandler: server.authenticate, schema }, async (request, reply) => {
         const { restaurantId, items } = request.body as Order
@@ -59,7 +48,7 @@ export default async function ordersRoute(server: FastifyInstance) {
         try {
             const { data } = await axios(restaurantURL);
             const { whatsappPhoneNumber, restaurantTitle } = data as Restaurant
-            await storeOrder({
+            const order = await storeOrder({
                 restaurantId,
                 restaurantTitle: restaurantTitle.ar || restaurantId,
                 restaurantWhatsApp: whatsappPhoneNumber,
@@ -69,13 +58,14 @@ export default async function ordersRoute(server: FastifyInstance) {
                 restaurantNotes: [],
                 orderStatus: OrderStatus.PENDING
             })
+            reply.send({
+                ...order
+            })
         } catch {
             console.error("Error - /orders - Failed fetching restaurant", restaurantId)
             reply.code(404).send()
         }
 
-        reply.send({
-            success: true
-        })
+
     })
 }

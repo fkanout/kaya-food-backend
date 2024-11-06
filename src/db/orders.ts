@@ -47,10 +47,8 @@ export async function storeOrder(order: Order) {
             createdDate: new Date().getTime()
         });
         const newUserSnapshot = await newOrderRef.get();
-        return newUserSnapshot.data();
+        return { ...newUserSnapshot.data(), id: newOrderRef.id };
     } catch (error) {
         console.error(error)
     }
-
-
 }
