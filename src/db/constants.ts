@@ -1,5 +1,5 @@
 export const DB_COLLECTIONS = {
-    SMS_AUTH: "sms_auth",
+    ORDERS: 'orders',
     USERS: "users"
 } as const
 export const VERIFICATION_STATUS = {

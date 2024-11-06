@@ -3,6 +3,8 @@ import fastifyJWT from '@fastify/jwt';
 import login from './routes/login'
 import verifyOTP from './routes/verify_otp'
 import me from './routes/me';
+import ordersRoute from './routes/orders';
+import clientsRoute from './routes/client';
 if (!process.env.JWT_SECRET) {
     throw new Error("JWT_SECRET environment variable is not set.");
 }
@@ -21,12 +23,19 @@ const server: FastifyInstance = Fastify({
 })
 
 interface UserPayload {
-    phoneNumber: string
+    phoneNumber: string,
+    address: {
+        residence: string;
+        block: string;
+        flat: string;
+    }
 }
 // Extend Fastify types explicitly
 declare module '@fastify/jwt' {
     interface FastifyJWT {
-        payload: UserPayload;
+        payload: {
+            phoneNumber: string,
+        };
         user: UserPayload;
     }
 }
@@ -53,7 +62,11 @@ server.register(fastifyJWT, {
 
 server.register(login, { prefix: '/v1' })
 server.register(verifyOTP, { prefix: '/v1' })
+
+//Protected JWT
 server.register(me, { prefix: '/v1' })
+server.register(ordersRoute, { prefix: '/v1' })
+server.register(clientsRoute, { prefix: '/v1' })
 
 
 export const startServer = async () => {

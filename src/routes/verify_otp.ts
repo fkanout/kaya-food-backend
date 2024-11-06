@@ -1,5 +1,5 @@
 import { FastifyInstance, RouteShorthandOptions } from "fastify";
-import { saveOrReturnVerifiedUser } from "../db/users";
+import { saveVerifiedClient } from "../db/clients";
 import { validateOTP } from "../otp";
 
 export default async function verifyOTPRoute(server: FastifyInstance) {
@@ -43,7 +43,7 @@ export default async function verifyOTPRoute(server: FastifyInstance) {
         const isValidOTP = validateOTP(phoneNumber, otp)
         if (isValidOTP) {
             console.log("isValidOTP")
-            const user = await saveOrReturnVerifiedUser({ phoneNumber });
+            const user = await saveVerifiedClient({ phoneNumber });
             const jwtToken = server.jwt.sign({ phoneNumber });
             reply.send({
                 ...user,
