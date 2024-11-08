@@ -1,10 +1,13 @@
-import Fastify, { FastifyInstance, FastifyPluginAsync, FastifyReply, FastifyRequest } from 'fastify'
+import Fastify, { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
 import fastifyJWT from '@fastify/jwt';
 import login from './routes/login'
 import verifyOTP from './routes/verify_otp'
 import me from './routes/me';
 import ordersRoute from './routes/orders';
 import clientsRoute from './routes/client';
+import whatsappWebhookRoute from './routes/whatsapp_webhook';
+import { registerAuthDecorator } from './routes/decorators/auth';
+import { registerWhatsappHookDecorator } from './routes/decorators/whatsapp';
 if (!process.env.JWT_SECRET) {
     throw new Error("JWT_SECRET environment variable is not set.");
 }
@@ -43,18 +46,14 @@ declare module 'fastify' {
     interface FastifyInstance {
         authenticate: (request: FastifyRequest, reply: FastifyReply) => Promise<void>;
     }
+    interface FastifyInstance {
+        whatsAppHook: (request: FastifyRequest, reply: FastifyReply) => Promise<void>;
+    }
+
 }
-const authDecorator: FastifyPluginAsync = async () => {
-    server.decorate('authenticate', async (request: FastifyRequest, reply: FastifyReply) => {
-        try {
-            await request.jwtVerify();
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        } catch (error: unknown) {
-            reply.status(401).send({ error: 'Unauthorized' });
-        }
-    });
-};
-server.register(authDecorator);
+
+server.register(registerAuthDecorator(server));
+server.register(registerWhatsappHookDecorator(server));
 
 server.register(fastifyJWT, {
     secret: process.env.JWT_SECRET,
@@ -67,6 +66,7 @@ server.register(verifyOTP, { prefix: '/v1' })
 server.register(me, { prefix: '/v1' })
 server.register(ordersRoute, { prefix: '/v1' })
 server.register(clientsRoute, { prefix: '/v1' })
+server.register(whatsappWebhookRoute, { prefix: '/v1' })
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
