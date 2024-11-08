@@ -10,7 +10,7 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
     server.post('/whatsapp_webhook', async (request, reply) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const body = request.body as Record<string, any>
-        console.log(request.body)
+        console.log(JSON.stringify(request.body))
         const business_phone_number_id =
             body.entry?.[0].changes?.[0].value?.metadata?.phone_number_id;
         const message = body.entry?.[0]?.changes[0]?.value?.messages?.[0];
