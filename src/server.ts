@@ -68,13 +68,15 @@ server.register(me, { prefix: '/v1' })
 server.register(ordersRoute, { prefix: '/v1' })
 server.register(clientsRoute, { prefix: '/v1' })
 
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
 export const startServer = async () => {
-    try {
-        await server.listen()
-    } catch (err) {
-        server.log.error(err)
-        process.exit(1)
-    }
+    server.listen({ port: PORT, host: '0.0.0.0' }, (err, address) => {
+        if (err) {
+            server.log.error(err);
+            process.exit(1);
+        }
+        server.log.info(`Server listening at ${address}`);
+    });
 }
 
