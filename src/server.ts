@@ -71,7 +71,7 @@ server.register(clientsRoute, { prefix: '/v1' })
 
 export const startServer = async () => {
     try {
-        await server.listen({ port: parseInt(process.env.PORT ?? "3000") })
+        await server.listen()
     } catch (err) {
         server.log.error(err)
         process.exit(1)
