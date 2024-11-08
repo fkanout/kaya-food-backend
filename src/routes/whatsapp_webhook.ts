@@ -15,18 +15,18 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
             body.entry?.[0].changes?.[0].value?.metadata?.phone_number_id;
         const message = body.entry?.[0]?.changes[0]?.value?.messages?.[0];
 
-        await axios({
-            method: "POST",
-            url: `https://graph.facebook.com/v20.0/${business_phone_number_id}/messages`,
-            headers: {
-                Authorization: `Bearer ${process.env.GRAPH_API_TOKEN}`,
-            },
-            data: {
-                messaging_product: "whatsapp",
-                status: "read",
-                message_id: message.id,
-            },
-        });
+        // await axios({
+        //     method: "POST",
+        //     url: `https://graph.facebook.com/v20.0/${business_phone_number_id}/messages`,
+        //     headers: {
+        //         Authorization: `Bearer ${process.env.GRAPH_API_TOKEN}`,
+        //     },
+        //     data: {
+        //         messaging_product: "whatsapp",
+        //         status: "read",
+        //         message_id: message.id,
+        //     },
+        // });
         reply.code(200);
     })
 
