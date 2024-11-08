@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node build/index.js",
+    "start": "node --no-deprecation build/index.js",
     "build": "tsc",
     "postinstall": "npm run build",
     "dev": "node --env-file=.env --watch -r ts-node/register src/index.ts",
@@ -9,7 +9,7 @@
   "devDependencies": {
     "@eslint/js": "^9.13.0",
     "@types/node": "^22.8.4",
-    "eslint": "^9.13.0",
+    "eslint": "^9.14.0",
     "globals": "^15.11.0",
     "ts-node": "^10.9.2",
     "typescript-eslint": "^8.12.2"
