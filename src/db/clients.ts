@@ -18,7 +18,7 @@ export async function saveVerifiedClient({ phoneNumber }: { phoneNumber: string 
         return newUserSnapshot.data();
     }
 }
-interface UpdateClientProfile {
+interface ClientProfile {
     firstName: string;
     lastName: string;
     preferences: string[]; //TODO: define categories
@@ -30,7 +30,7 @@ interface UpdateClientProfile {
     birthday: string;
 }
 
-export async function updateClientProfile(userProfile: UpdateClientProfile, phoneNumber: string) {
+export async function updateClientProfile(userProfile: ClientProfile, phoneNumber: string) {
     const usersRef = db.collection(DB_COLLECTIONS.USERS);
     const querySnapshot = await usersRef.where('phoneNumber', '==', phoneNumber).limit(1).get();
     if (!querySnapshot.empty) {
@@ -47,11 +47,11 @@ export async function updateClientProfile(userProfile: UpdateClientProfile, phon
     }
 }
 
-export async function getClientByPhoneNumber(phoneNumber: string) {
+export async function getClientByPhoneNumber(phoneNumber: string): Promise<ClientProfile> {
     const usersRef = db.collection(DB_COLLECTIONS.USERS);
     const querySnapshot = await usersRef.where('phoneNumber', '==', phoneNumber).limit(1).get();
     if (!querySnapshot.empty) {
-        return querySnapshot.docs[0].data();
+        return querySnapshot.docs[0].data() as ClientProfile;
     } else {
         throw ("Error user doesn't exists")
     }

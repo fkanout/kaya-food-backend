@@ -1,5 +1,8 @@
 import { DB_COLLECTIONS } from "./constants";
+
+
 import { db } from "./index"
+
 export const OrderStatus = {
     PENDING: 'pending',
     CANCELED_CLIENT: 'canceled_client',
@@ -12,7 +15,7 @@ export const OrderStatus = {
 } as const
 export type OrderStatus = (typeof OrderStatus)[keyof typeof OrderStatus];
 
-interface Item {
+export interface Item {
     name: string;
     quantity: number;
     note: string;
@@ -29,7 +32,9 @@ interface Order {
     }
     items: Item[];
     orderStatus: OrderStatus;
-    restaurantNotes: string[];
+    restaurantNotes?: string[];
+    clientNotes?: string[];
+    whatsAppChatId?: string;
 }
 
 export async function storeOrder(order: Order) {
@@ -44,11 +49,28 @@ export async function storeOrder(order: Order) {
             address: order.clientAddress,
             items: order.items,
             orderStatus: order.orderStatus,
-            createdDate: new Date().getTime()
+            createdDate: new Date().getTime(),
+            whatsAppChatId: order.whatsAppChatId || ""
         });
         const newUserSnapshot = await newOrderRef.get();
         return { ...newUserSnapshot.data(), id: newOrderRef.id };
     } catch (error) {
         console.error(error)
+    }
+}
+interface UpdateOrder {
+    items?: Item[];
+    orderStatus?: OrderStatus;
+    restaurantNotes?: string[];
+    clientNotes?: string[]
+    whatsAppChatId?: string;
+}
+export async function updateOrder(order: UpdateOrder, orderId: string) {
+    const orderRef = db.collection("orders").doc(orderId);
+    try {
+        await orderRef.update(order as { [x: string]: unknown });
+        console.log("Order updated successfully.");
+    } catch (error) {
+        console.error("Error updating order:", error);
     }
 }

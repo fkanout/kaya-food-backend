@@ -1,8 +1,9 @@
 import { FastifyInstance } from "fastify";
 import axios from "axios";
 import { Restaurant } from "../helpers/types";
-import { OrderStatus, storeOrder } from "../db/orders";
+import { OrderStatus, storeOrder, updateOrder } from "../db/orders";
 import { getClientByPhoneNumber } from "../db/clients";
+import { sendWhatsappOrder } from "../helpers/whatspp";
 interface Item {
     name: string;
     quantity: number;
@@ -52,12 +53,32 @@ export default async function ordersRoute(server: FastifyInstance) {
                 restaurantId,
                 restaurantTitle: restaurantTitle.ar || restaurantId,
                 restaurantWhatsApp: whatsappPhoneNumber,
-                clientPhoneNumber: userData.phoneNumber,
+                clientPhoneNumber: user.phoneNumber,
                 clientAddress: userData.address,
                 items,
                 restaurantNotes: [],
                 orderStatus: OrderStatus.PENDING
             })
+            if (order?.id) {
+                const whatsAppChatId = await sendWhatsappOrder({
+                    restaurantPhoneNumber: whatsappPhoneNumber,
+                    orderNumber: order?.id || "orderId",
+                    clientFirstName: userData.firstName,
+                    clientLastName: userData.lastName,
+                    clientPhoneNumber: user.phoneNumber,
+                    clientResidence: userData.address.residence,
+                    clientBlock: userData.address.block,
+                    clientFlat: userData.address.flat,
+                    order: items
+                })
+                if (whatsAppChatId) {
+                    await updateOrder({
+                        whatsAppChatId,
+                        orderStatus: OrderStatus.CONFIRMED
+                    }, order?.id)
+                }
+            }
+
             reply.send({
                 ...order
             })
