@@ -58,6 +58,7 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
         // const business_phone_number_id =
         //     body.entry?.[0].changes?.[0].value?.metadata?.phone_number_id;
         const buttonPayload = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button.payload;
+        console.log(body.entry[0])
         if (buttonPayload === "قبول الطلب") {
             console.log("order accepted")
         }
