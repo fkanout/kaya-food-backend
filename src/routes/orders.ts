@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
 import axios from "axios";
 import { Restaurant } from "../helpers/types";
-import { OrderStatus, storeOrder, updateOrder } from "../db/orders";
+import { OrderStatus, storeOrder, updateOrderById } from "../db/orders";
 import { getClientByPhoneNumber } from "../db/clients";
 import { sendWhatsappOrder } from "../helpers/whatspp";
 interface Item {
@@ -72,7 +72,7 @@ export default async function ordersRoute(server: FastifyInstance) {
                     order: items
                 })
                 if (whatsAppChatId) {
-                    await updateOrder({
+                    await updateOrderById({
                         whatsAppChatId,
                         orderStatus: OrderStatus.CONFIRMED
                     }, order?.id)

@@ -1,6 +1,8 @@
 
 import { FastifyInstance } from "fastify";
 import { WhatsAppWebhook } from "../types";
+import { OrderStatus, updateOrderByWhatsAppChatId } from "../db/orders";
+import axios from "axios";
 // const mock = {
 //     "object": "whatsapp_business_account",
 //     "entry": [
@@ -55,25 +57,32 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
 
         const body = request.body as WhatsAppWebhook
 
-        // const business_phone_number_id =
-        //     body.entry?.[0].changes?.[0].value?.metadata?.phone_number_id;
+        const businessPhoneNumberId =
+            body.entry?.[0].changes?.[0].value?.metadata?.phone_number_id;
         const buttonPayload = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button.payload;
-        console.log(body.entry[0])
+        const WhatsAppChatId = body.entry?.[0]?.changes[0]?.value?.messages?.[0].id
+        console.log(body.entry[0].changes[0].value.messages)
+
+
         if (buttonPayload === "قبول الطلب") {
-            console.log("order accepted")
+            await updateOrderByWhatsAppChatId({ orderStatus: OrderStatus.CONFIRMED }, WhatsAppChatId)
         }
-        // await axios({
-        //     method: "POST",
-        //     url: `https://graph.facebook.com/v20.0/${business_phone_number_id}/messages`,
-        //     headers: {
-        //         Authorization: `Bearer ${process.env.GRAPH_API_TOKEN}`,
-        //     },
-        //     data: {
-        //         messaging_product: "whatsapp",
-        //         status: "read",
-        //         message_id: message.id,
-        //     },
-        // });
+        if (buttonPayload === "جزء من الطلب غير متوفر") {
+            await updateOrderByWhatsAppChatId({ orderStatus: OrderStatus.CANCELED_RESTAURANT }, WhatsAppChatId)
+        }
+
+        await axios({
+            method: "POST",
+            url: `https://graph.facebook.com/v20.0/${[businessPhoneNumberId]}/messages`,
+            headers: {
+                Authorization: `Bearer ${process.env.GRAPH_API_TOKEN}`,
+            },
+            data: {
+                messaging_product: "whatsapp",
+                status: "read",
+                message_id: WhatsAppChatId,
+            },
+        });
         reply.code(200);
     })
 
