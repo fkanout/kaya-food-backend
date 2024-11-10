@@ -57,6 +57,8 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
         const body = request.body as WhatsAppWebhook
         const messagePayload = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button.payload;
         const whatsAppMessageId = body.entry?.[0]?.changes[0]?.value?.messages?.[0].id
+        console.log("whatsAppMessageId", whatsAppMessageId)
+        console.log("body.entry?.[0]?.changes[0]", body.entry?.[0]?.changes[0])
         const isMessageProcessed = getCache(whatsAppMessageId)
         if (isMessageProcessed) {
             return reply.code(200).send({ status: "ok" })
