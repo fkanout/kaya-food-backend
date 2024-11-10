@@ -1,8 +1,8 @@
 
 import { FastifyInstance } from "fastify";
-import { WhatsAppWebhook } from "../types";
-import { OrderStatus, updateOrderByWhatsAppChatId } from "../db/orders";
-import axios from "axios";
+import { RESTAURANT_REPLAY_WHATSAPP, WhatsAppWebhook } from "../types";
+import { OrderStatus, updateOrderById } from "../db/orders";
+import { getCache, setCache } from "../cache";
 // const mock = {
 //     "object": "whatsapp_business_account",
 //     "entry": [
@@ -54,36 +54,24 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
     })
 
     server.post('/whatsapp_webhook', async (request, reply) => {
-
         const body = request.body as WhatsAppWebhook
-
-        const businessPhoneNumberId =
-            body.entry?.[0].changes?.[0].value?.metadata?.phone_number_id;
-        const buttonPayload = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button.payload;
-        const WhatsAppChatId = body.entry?.[0]?.changes[0]?.value?.messages?.[0].id
-        console.log(body.entry[0].changes[0].value.messages)
-
-
-        if (buttonPayload === "قبول الطلب") {
-            await updateOrderByWhatsAppChatId({ orderStatus: OrderStatus.CONFIRMED }, WhatsAppChatId)
+        const messagePayload = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button.payload;
+        const whatsAppMessageId = body.entry?.[0]?.changes[0]?.value?.messages?.[0].id
+        const isMessageProcessed = getCache(whatsAppMessageId)
+        if (isMessageProcessed) {
+            return reply.code(200).send({ status: "ok" })
         }
-        if (buttonPayload === "جزء من الطلب غير متوفر") {
-            await updateOrderByWhatsAppChatId({ orderStatus: OrderStatus.CANCELED_RESTAURANT }, WhatsAppChatId)
+        setCache(whatsAppMessageId, true)
+
+        const [restaurantReply, orderId] = messagePayload.split(":");
+        if (restaurantReply === RESTAURANT_REPLAY_WHATSAPP.ACCEPTED) {
+            await updateOrderById({ orderStatus: OrderStatus.CONFIRMED }, orderId)
+        }
+        if (restaurantReply === RESTAURANT_REPLAY_WHATSAPP.REJECTED) {
+            await updateOrderById({ orderStatus: OrderStatus.CANCELED_RESTAURANT }, orderId)
         }
 
-        await axios({
-            method: "POST",
-            url: `https://graph.facebook.com/v20.0/${[businessPhoneNumberId]}/messages`,
-            headers: {
-                Authorization: `Bearer ${process.env.GRAPH_API_TOKEN}`,
-            },
-            data: {
-                messaging_product: "whatsapp",
-                status: "read",
-                message_id: WhatsAppChatId,
-            },
-        });
-        reply.code(200);
+        reply.code(200).send({ status: "ok" })
     })
 
 

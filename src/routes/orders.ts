@@ -60,9 +60,9 @@ export default async function ordersRoute(server: FastifyInstance) {
                 orderStatus: OrderStatus.PENDING
             })
             if (order?.id) {
-                const whatsAppChatId = await sendWhatsappOrder({
+                const whatsAppContextId = await sendWhatsappOrder({
                     restaurantPhoneNumber: whatsappPhoneNumber,
-                    orderNumber: order?.id || "orderId",
+                    orderId: order?.id || "orderId",
                     clientFirstName: userData.firstName,
                     clientLastName: userData.lastName,
                     clientPhoneNumber: user.phoneNumber,
@@ -71,9 +71,9 @@ export default async function ordersRoute(server: FastifyInstance) {
                     clientFlat: userData.address.flat,
                     order: items
                 })
-                if (whatsAppChatId) {
+                if (whatsAppContextId) {
                     await updateOrderById({
-                        whatsAppChatId,
+                        whatsAppContextId,
                         orderStatus: OrderStatus.CONFIRMED
                     }, order?.id)
                 }

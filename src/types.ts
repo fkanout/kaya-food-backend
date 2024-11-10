@@ -68,3 +68,14 @@ interface Message {
     id: string;
     message_status: string;
 }
+
+
+
+export const RESTAURANT_REPLAY_WHATSAPP = {
+    ACCEPTED: "accepted",
+    REJECTED: "rejected",
+    ADDRESS_ERROR: "address_error",
+    DELIVERY_UNAVAILABLE: "delivery_unavailable",
+    RESTAURANT_CLOSED: "restaurant_closed",
+    CONTACT_CLIENT: "contact_client",
+} as const

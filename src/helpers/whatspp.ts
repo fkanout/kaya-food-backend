@@ -1,9 +1,9 @@
 import axios from "axios"
 import { Item } from "../db/orders"
-import { WhatsAppMessageResponse } from "../types"
+import { RESTAURANT_REPLAY_WHATSAPP, WhatsAppMessageResponse } from "../types"
 export const sendWhatsappOrder = async ({
     // restaurantPhoneNumber,
-    orderNumber,
+    orderId,
     clientFirstName,
     clientLastName,
     clientPhoneNumber,
@@ -13,7 +13,7 @@ export const sendWhatsappOrder = async ({
     order
 }: {
     restaurantPhoneNumber: string,
-    orderNumber: string,
+    orderId: string,
     clientFirstName: string,
     clientLastName: string,
     clientPhoneNumber: string,
@@ -52,7 +52,7 @@ export const sendWhatsappOrder = async ({
                     "parameters": [
                         {
                             "type": "text",
-                            "text": orderNumber
+                            "text": orderId
                         },
                         {
                             "type": "text",
@@ -64,15 +64,82 @@ export const sendWhatsappOrder = async ({
                         }
                     ]
                 },
+                {
+                    "type": "button",
+                    "sub_type": "quick_reply",
+                    "index": "0",
+                    "parameters": [
+                        {
+                            "type": "payload",
+                            "payload": `${RESTAURANT_REPLAY_WHATSAPP.ACCEPTED}:${orderId}`
+                        }
+                    ]
+                },
+                {
+                    "type": "button",
+                    "sub_type": "quick_reply",
+                    "index": "1",
+                    "parameters": [
+                        {
+                            "type": "payload",
+                            "payload": `${RESTAURANT_REPLAY_WHATSAPP.REJECTED}:${orderId}`
+                        }
+                    ]
+                },
+                {
+                    "type": "button",
+                    "sub_type": "quick_reply",
+                    "index": "2",
+                    "parameters": [
+                        {
+                            "type": "payload",
+                            "payload": `${RESTAURANT_REPLAY_WHATSAPP.ADDRESS_ERROR}:${orderId}`
+                        }
+                    ]
+                },
+                {
+                    "type": "button",
+                    "sub_type": "quick_reply",
+                    "index": "3",
+                    "parameters": [
+                        {
+                            "type": "payload",
+                            "payload": `${RESTAURANT_REPLAY_WHATSAPP.DELIVERY_UNAVAILABLE}:${orderId}`
+                        }
+                    ]
+                },
+                {
+                    "type": "button",
+                    "sub_type": "quick_reply",
+                    "index": "4",
+                    "parameters": [
+                        {
+                            "type": "payload",
+                            "payload": `${RESTAURANT_REPLAY_WHATSAPP.RESTAURANT_CLOSED}:${orderId}`
+                        }
+                    ]
+                },
+                {
+                    "type": "button",
+                    "sub_type": "quick_reply",
+                    "index": "5",
+                    "parameters": [
+                        {
+                            "type": "payload",
+                            "payload": `${RESTAURANT_REPLAY_WHATSAPP.CONTACT_CLIENT}:${orderId}`
+                        }
+                    ]
+                }
 
             ]
         }
     }
     try {
         console.log(newOrderReceivedTemplate)
-        const whatsappReq = await axios.post("https://graph.facebook.com/v20.0/467098409816102/messages", newOrderReceivedTemplate, { headers: { 'Authorization': `Bearer ${process.env.GRAPH_API_TOKEN}` } })
+        const whatsappReq = await axios.post("https://graph.facebook.com/v20.0/467098409816102/messages", newOrderReceivedTemplate, { headers: { 'Authorization': `Bearer ${process.env.WHATSAPP_API_KEY}` } })
         console.log(whatsappReq.statusText)
         const reqRes = whatsappReq.data as unknown as WhatsAppMessageResponse
+        console.log(reqRes)
         if (reqRes.messages[0].message_status === 'accepted') {
             return reqRes.messages[0].id
         } else {

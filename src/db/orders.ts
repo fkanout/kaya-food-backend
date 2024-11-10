@@ -63,7 +63,7 @@ interface UpdateOrder {
     orderStatus?: OrderStatus;
     restaurantNotes?: string[];
     clientNotes?: string[]
-    whatsAppChatId?: string;
+    whatsAppContextId?: string;
 }
 export async function updateOrderById(order: UpdateOrder, orderId: string) {
     const orderRef = db.collection("orders").doc(orderId);
@@ -75,9 +75,9 @@ export async function updateOrderById(order: UpdateOrder, orderId: string) {
     }
 }
 
-export async function updateOrderByWhatsAppChatId(order: UpdateOrder, whatsAppChatId: string) {
+export async function updateOrderByWhatsAppChatId(order: UpdateOrder, whatsAppContextId: string) {
     const ordersRef = db.collection(DB_COLLECTIONS.ORDERS);
-    const querySnapshot = await ordersRef.where('whatsAppChatId', '==', whatsAppChatId).limit(1).get();
+    const querySnapshot = await ordersRef.where('whatsAppContextId', '==', whatsAppContextId).limit(1).get();
     if (!querySnapshot.empty) {
         const docRef = querySnapshot.docs[0].ref;
         const updateData = {
@@ -88,6 +88,6 @@ export async function updateOrderByWhatsAppChatId(order: UpdateOrder, whatsAppCh
         const updateProfileRef = await docRef.get();
         return updateProfileRef.data();
     } else {
-        throw (`Error order with whatsAppChatId == ${whatsAppChatId} doesn't exists`)
+        throw (`Error order with whatsAppContextId == ${whatsAppContextId} doesn't exists`)
     }
 }
