@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
 import axios from "axios";
 import { Restaurant } from "../helpers/types";
-import { OrderStatus, storeOrder, updateOrderById } from "../db/orders";
+import { OrderStatus, storeOrder } from "../db/orders";
 import { getClientByPhoneNumber } from "../db/clients";
 import { sendWhatsappOrder } from "../helpers/whatspp";
 interface Item {
@@ -46,6 +46,7 @@ export default async function ordersRoute(server: FastifyInstance) {
         const user = request.user;
         const userData = await getClientByPhoneNumber(user.phoneNumber);
         const restaurantURL = `https://fkanout.github.io/kaya-food/restaurants/${restaurantId}.json`
+        let orderId
         try {
             const { data } = await axios(restaurantURL);
             const { whatsappPhoneNumber, restaurantTitle } = data as Restaurant
@@ -60,7 +61,8 @@ export default async function ordersRoute(server: FastifyInstance) {
                 orderStatus: OrderStatus.PENDING
             })
             if (order?.id) {
-                const whatsAppContextId = await sendWhatsappOrder({
+                orderId = order.id
+                const isSent = await sendWhatsappOrder({
                     restaurantPhoneNumber: whatsappPhoneNumber,
                     orderId: order?.id || "orderId",
                     clientFirstName: userData.firstName,
@@ -71,19 +73,17 @@ export default async function ordersRoute(server: FastifyInstance) {
                     clientFlat: userData.address.flat,
                     order: items
                 })
-                if (whatsAppContextId) {
-                    await updateOrderById({
-                        whatsAppContextId,
-                        orderStatus: OrderStatus.CONFIRMED
-                    }, order?.id)
+                if (isSent) {
+                    return reply.send({
+                        ...order
+                    })
+                } else {
+                    reply.code(500).send({ success: false, msg: "couldn't send the order to the restaurant" })
                 }
             }
 
-            reply.send({
-                ...order
-            })
         } catch {
-            console.error("Error - /orders - Failed fetching restaurant", restaurantId)
+            console.error("Error - /orders - Failed send order to the restaurant: ", restaurantId, " orderId: ", orderId)
             reply.code(404).send()
         }
 

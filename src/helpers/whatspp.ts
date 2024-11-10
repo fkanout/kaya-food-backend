@@ -21,7 +21,7 @@ export const sendWhatsappOrder = async ({
     clientBlock: string,
     clientFlat: string,
     order: Item[]
-}) => {
+}): Promise<boolean | undefined> => {
     const location = {
         "latitude": 41.1217921,
         "longitude": 28.7779856,
@@ -135,13 +135,10 @@ export const sendWhatsappOrder = async ({
         }
     }
     try {
-        console.log(newOrderReceivedTemplate)
         const whatsappReq = await axios.post("https://graph.facebook.com/v20.0/467098409816102/messages", newOrderReceivedTemplate, { headers: { 'Authorization': `Bearer ${process.env.WHATSAPP_API_KEY}` } })
-        console.log(whatsappReq.statusText)
         const reqRes = whatsappReq.data as unknown as WhatsAppMessageResponse
-        console.log(reqRes)
         if (reqRes.messages[0].message_status === 'accepted') {
-            return reqRes.messages[0].id
+            return true
         } else {
             throw ('Send WhatsApp order failed')
         }
