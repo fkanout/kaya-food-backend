@@ -70,7 +70,7 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
         if (restaurantReply === RESTAURANT_REPLAY_WHATSAPP.REJECTED) {
             await updateOrderById({ orderStatus: OrderStatus.CANCELED_RESTAURANT }, orderId)
         }
-
+        console.log(restaurantReply, orderId)
         reply.code(200).send({ status: "ok" })
     })
 
