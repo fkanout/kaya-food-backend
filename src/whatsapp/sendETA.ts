@@ -1,5 +1,5 @@
 import axios from "axios"
-import { WhatsAppMessageResponse } from "../types"
+import { RESTAURANT_REPLAY_WHATSAPP, WhatsAppMessageResponse } from "../types"
 export const sendETARequest = async ({
     // restaurantPhoneNumber,
     whatsAppOrderMessageId,
@@ -138,59 +138,24 @@ export const sendETARequest = async ({
                     {
                         type: 'reply',
                         reply: {
-                            id: `sec_${1200}_${orderId}`,
-                            title: '٢٠ دقيقة'
+                            id: `${RESTAURANT_REPLAY_WHATSAPP[1800]}_${orderId}`,
+                            title: '١٥-٣٠ دقيقة'
                         }
                     },
                     {
                         type: 'reply',
                         reply: {
-                            id: `sec_${1800}_${orderId}`,
-                            title: '٣٠ دقيقة'
+                            id: `${RESTAURANT_REPLAY_WHATSAPP[2700]}_${orderId}`,
+                            title: '٣٠-٤٥ دقيقة'
                         }
                     },
                     {
                         type: 'reply',
                         reply: {
-                            id: `sec_${2400}_${orderId}`,
-                            title: '٤٠ دقيقة'
+                            id: `${RESTAURANT_REPLAY_WHATSAPP[3600]}_${orderId}`,
+                            title: '٤٥-٦٠ دقيقة'
                         }
                     },
-                    {
-                        type: 'reply',
-                        reply: {
-                            id: `sec_${3000}_${orderId}`,
-                            title: '٥٠ دقيقة'
-                        }
-                    },
-                    {
-                        type: 'reply',
-                        reply: {
-                            id: `sec_${3600}_${orderId}`,
-                            title: '١ ساعة'
-                        }
-                    },
-                    {
-                        type: 'reply',
-                        reply: {
-                            id: `sec_${4200}_${orderId}`,
-                            title: '١ ساعة و ١٠ دقائق'
-                        }
-                    },
-                    {
-                        type: 'reply',
-                        reply: {
-                            id: `sec_${5400}_${orderId}`,
-                            title: '١ ساعة ونصف'
-                        }
-                    },
-                    {
-                        type: 'reply',
-                        reply: {
-                            id: `sec_${7200}_${orderId}`,
-                            title: '٢ ساعة'
-                        }
-                    }
                 ]
             }
         },

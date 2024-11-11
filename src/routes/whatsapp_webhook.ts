@@ -82,14 +82,9 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
                 const [restaurantReply, orderId] = messagePayload.split("_");
 
                 switch (restaurantReply) {
-                    case RESTAURANT_REPLAY_WHATSAPP[1200]:
                     case RESTAURANT_REPLAY_WHATSAPP[1800]:
-                    case RESTAURANT_REPLAY_WHATSAPP[2400]:
-                    case RESTAURANT_REPLAY_WHATSAPP[3000]:
-                    case RESTAURANT_REPLAY_WHATSAPP[3600]:
-                    case RESTAURANT_REPLAY_WHATSAPP[4200]:
-                    case RESTAURANT_REPLAY_WHATSAPP[5400]:
-                    case RESTAURANT_REPLAY_WHATSAPP[7200]: {
+                    case RESTAURANT_REPLAY_WHATSAPP[2700]:
+                    case RESTAURANT_REPLAY_WHATSAPP[3600]: {
                         const [, eta,] = restaurantReply.split("_")
                         await updateOrderById({ eta }, orderId)
                         break;
@@ -97,10 +92,7 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
                 }
             }
             console.log(restaurantReply, orderId)
-
         }
-
-
         reply.code(200).send({ status: "ok" })
     })
 
