@@ -208,7 +208,7 @@ export const sendETARequest = async ({
         }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-        console.error(error)
+        console.error(JSON.stringify(error))
     }
 
 }
