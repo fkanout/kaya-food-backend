@@ -56,8 +56,8 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
 
     server.post('/whatsapp_webhook', async (request, reply) => {
         const body = request.body as WhatsAppWebhook
-        const messagePayload = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button.payload
-        const messagePayloadById = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button.id
+        const messagePayload = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button?.payload
+        const messagePayloadById = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button?.id
         const whatsAppMessageId = body.entry?.[0]?.changes[0]?.value?.messages?.[0].id
         const from = body.entry?.[0]?.changes[0]?.value?.messages?.[0].from
         if (!whatsAppMessageId) {

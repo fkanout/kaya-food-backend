@@ -131,7 +131,7 @@ export const sendETARequest = async ({
         interactive: {
             type: 'button',
             body: {
-                text: 'Please select an option:'
+                text: 'اختر الوقت المتوقع لوصول الطلب إلى الزبون 🛵'
             },
             action: {
                 buttons: [
