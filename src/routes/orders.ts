@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
 import axios from "axios";
 import { Restaurant } from "../helpers/types";
-import { OrderStatus, storeOrder } from "../db/orders";
+import { OrderStatus, storeOrder, updateOrderById } from "../db/orders";
 import { getClientByPhoneNumber } from "../db/clients";
 import { sendWhatsappOrder } from "../helpers/whatspp";
 interface Item {
@@ -62,7 +62,7 @@ export default async function ordersRoute(server: FastifyInstance) {
             })
             if (order?.id) {
                 orderId = order.id
-                const isSent = await sendWhatsappOrder({
+                const whatsAppOrderMessageId = await sendWhatsappOrder({
                     restaurantPhoneNumber: whatsappPhoneNumber,
                     orderId: order?.id || "orderId",
                     clientFirstName: userData.firstName,
@@ -73,9 +73,10 @@ export default async function ordersRoute(server: FastifyInstance) {
                     clientFlat: userData.address.flat,
                     order: items
                 })
-                if (isSent) {
+                if (whatsAppOrderMessageId) {
+                    const orderUpdated = await updateOrderById({ whatsAppOrderMessageId }, orderId)
                     return reply.send({
-                        ...order
+                        ...orderUpdated
                     })
                 } else {
                     reply.code(500).send({ success: false, msg: "couldn't send the order to the restaurant" })

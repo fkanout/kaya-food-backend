@@ -34,7 +34,7 @@ interface Order {
     orderStatus: OrderStatus;
     restaurantNotes?: string[];
     clientNotes?: string[];
-    whatsAppChatId?: string;
+    whatsAppOrderMessageId?: string
 }
 
 export async function storeOrder(order: Order) {
@@ -50,7 +50,7 @@ export async function storeOrder(order: Order) {
             items: order.items,
             orderStatus: order.orderStatus,
             createdDate: new Date().getTime(),
-            whatsAppChatId: order.whatsAppChatId || ""
+            whatsAppOrderMessageId: order.whatsAppOrderMessageId || ""
         });
         const newUserSnapshot = await newOrderRef.get();
         return { ...newUserSnapshot.data(), id: newOrderRef.id };
@@ -63,21 +63,23 @@ interface UpdateOrder {
     orderStatus?: OrderStatus;
     restaurantNotes?: string[];
     clientNotes?: string[]
-    whatsAppContextId?: string;
+    whatsAppOrderMessageId?: string;
 }
 export async function updateOrderById(order: UpdateOrder, orderId: string) {
     const orderRef = db.collection("orders").doc(orderId);
     try {
         await orderRef.update(order as { [x: string]: unknown });
         console.log("Order updated successfully.");
+        const orderSnapshot = await orderRef.get();
+        return { ...orderSnapshot.data(), id: orderSnapshot.id };
     } catch (error) {
         console.error("Error updating order:", error);
     }
 }
 
-export async function updateOrderByWhatsAppChatId(order: UpdateOrder, whatsAppContextId: string) {
+export async function updateOrderByWhatsAppChatId(order: UpdateOrder, whatsAppOrderMessageId: string) {
     const ordersRef = db.collection(DB_COLLECTIONS.ORDERS);
-    const querySnapshot = await ordersRef.where('whatsAppContextId', '==', whatsAppContextId).limit(1).get();
+    const querySnapshot = await ordersRef.where('whatsAppOrderMessageId', '==', whatsAppOrderMessageId).limit(1).get();
     if (!querySnapshot.empty) {
         const docRef = querySnapshot.docs[0].ref;
         const updateData = {
@@ -88,6 +90,6 @@ export async function updateOrderByWhatsAppChatId(order: UpdateOrder, whatsAppCo
         const updateProfileRef = await docRef.get();
         return updateProfileRef.data();
     } else {
-        throw (`Error order with whatsAppContextId == ${whatsAppContextId} doesn't exists`)
+        throw (`Error order with whatsAppOrderMessageId == ${whatsAppOrderMessageId} doesn't exists`)
     }
 }
