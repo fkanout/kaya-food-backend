@@ -56,7 +56,8 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
 
     server.post('/whatsapp_webhook', async (request, reply) => {
         const body = request.body as WhatsAppWebhook
-        const messagePayload = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button.payload || body.entry?.[0]?.changes[0]?.value?.messages?.[0].button.id;
+        const messagePayload = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button.payload
+        const messagePayloadById = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button.id
         const whatsAppMessageId = body.entry?.[0]?.changes[0]?.value?.messages?.[0].id
         const from = body.entry?.[0]?.changes[0]?.value?.messages?.[0].from
         if (!whatsAppMessageId) {
@@ -77,18 +78,22 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
             if (restaurantReply === RESTAURANT_REPLAY_WHATSAPP.REJECTED) {
                 await updateOrderById({ orderStatus: OrderStatus.CANCELED_RESTAURANT }, orderId)
             }
-            switch (restaurantReply) {
-                case RESTAURANT_REPLAY_WHATSAPP[1200]:
-                case RESTAURANT_REPLAY_WHATSAPP[1800]:
-                case RESTAURANT_REPLAY_WHATSAPP[2400]:
-                case RESTAURANT_REPLAY_WHATSAPP[3000]:
-                case RESTAURANT_REPLAY_WHATSAPP[3600]:
-                case RESTAURANT_REPLAY_WHATSAPP[4200]:
-                case RESTAURANT_REPLAY_WHATSAPP[5400]:
-                case RESTAURANT_REPLAY_WHATSAPP[7200]: {
-                    const [, eta] = restaurantReply.split("sec_")
-                    await updateOrderById({ eta }, orderId)
-                    break;
+            if (messagePayloadById) {
+                const [restaurantReply, orderId] = messagePayload.split("_");
+
+                switch (restaurantReply) {
+                    case RESTAURANT_REPLAY_WHATSAPP[1200]:
+                    case RESTAURANT_REPLAY_WHATSAPP[1800]:
+                    case RESTAURANT_REPLAY_WHATSAPP[2400]:
+                    case RESTAURANT_REPLAY_WHATSAPP[3000]:
+                    case RESTAURANT_REPLAY_WHATSAPP[3600]:
+                    case RESTAURANT_REPLAY_WHATSAPP[4200]:
+                    case RESTAURANT_REPLAY_WHATSAPP[5400]:
+                    case RESTAURANT_REPLAY_WHATSAPP[7200]: {
+                        const [eta,] = restaurantReply.split("_")
+                        await updateOrderById({ eta }, orderId)
+                        break;
+                    }
                 }
             }
             console.log(restaurantReply, orderId)

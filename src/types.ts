@@ -79,12 +79,12 @@ export const RESTAURANT_REPLAY_WHATSAPP = {
     DELIVERY_UNAVAILABLE: "delivery_unavailable",
     RESTAURANT_CLOSED: "restaurant_closed",
     CONTACT_CLIENT: "contact_client",
-    1200: "sec_1200", // 20 min
-    1800: "sec_1800", // 30 min
-    2400: "sec_2400", // 40 min
-    3000: "sec_3000", // 50 min   
-    3600: "sec_3600", // 1 hour 
-    4200: "sec_4200", // 1 hour 10 min
-    5400: "sec_5400", // 1 hour 30 min
-    7200: "sec_7200", // 2 hours
+    1200: "1200", // 20 min
+    1800: "1800", // 30 min
+    2400: "2400", // 40 min
+    3000: "3000", // 50 min   
+    3600: "3600", // 1 hour 
+    4200: "4200", // 1 hour 10 min
+    5400: "5400", // 1 hour 30 min
+    7200: "7200", // 2 hours
 } as const
