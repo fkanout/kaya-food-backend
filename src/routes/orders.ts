@@ -3,7 +3,7 @@ import axios from "axios";
 import { Restaurant } from "../helpers/types";
 import { OrderStatus, storeOrder, updateOrderById } from "../db/orders";
 import { getClientByPhoneNumber } from "../db/clients";
-import { sendWhatsappOrder } from "../helpers/whatspp";
+import { sendWhatsappOrder } from "../whatsapp/sendOrder";
 interface Item {
     name: string;
     quantity: number;

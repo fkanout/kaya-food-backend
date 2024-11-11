@@ -3,6 +3,7 @@ import { FastifyInstance } from "fastify";
 import { RESTAURANT_REPLAY_WHATSAPP, WhatsAppWebhook } from "../types";
 import { OrderStatus, updateOrderById } from "../db/orders";
 import { getCache, setCache } from "../cache";
+import { sendETARequest } from "../whatsapp/sendETA";
 // const mock = {
 //     "object": "whatsapp_business_account",
 //     "entry": [
@@ -57,6 +58,7 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
         const body = request.body as WhatsAppWebhook
         const messagePayload = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button.payload;
         const whatsAppMessageId = body.entry?.[0]?.changes[0]?.value?.messages?.[0].id
+        const from = body.entry?.[0]?.changes[0]?.value?.messages?.[0].from
         if (!whatsAppMessageId) {
             return reply.code(200).send({ status: "ok" })
         }
@@ -68,6 +70,7 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
         const [restaurantReply, orderId] = messagePayload.split(":");
         if (restaurantReply === RESTAURANT_REPLAY_WHATSAPP.ACCEPTED) {
             await updateOrderById({ orderStatus: OrderStatus.CONFIRMED }, orderId)
+            await sendETARequest({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId })
         }
         if (restaurantReply === RESTAURANT_REPLAY_WHATSAPP.REJECTED) {
             await updateOrderById({ orderStatus: OrderStatus.CANCELED_RESTAURANT }, orderId)
