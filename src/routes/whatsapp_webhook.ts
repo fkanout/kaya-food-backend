@@ -56,7 +56,7 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
 
     server.post('/whatsapp_webhook', async (request, reply) => {
         const body = request.body as WhatsAppWebhook
-        const messagePayload = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button.payload;
+        const messagePayload = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button.payload || body.entry?.[0]?.changes[0]?.value?.messages?.[0].button.id;
         const whatsAppMessageId = body.entry?.[0]?.changes[0]?.value?.messages?.[0].id
         const from = body.entry?.[0]?.changes[0]?.value?.messages?.[0].from
         if (!whatsAppMessageId) {
@@ -67,15 +67,33 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
             return reply.code(200).send({ status: "ok" })
         }
         setCache(whatsAppMessageId, true)
-        const [restaurantReply, orderId] = messagePayload.split(":");
-        if (restaurantReply === RESTAURANT_REPLAY_WHATSAPP.ACCEPTED) {
-            await updateOrderById({ orderStatus: OrderStatus.CONFIRMED }, orderId)
-            await sendETARequest({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId })
+        if (messagePayload) {
+            console.log(messagePayload);
+            const [restaurantReply, orderId] = messagePayload.split(":");
+            if (restaurantReply === RESTAURANT_REPLAY_WHATSAPP.ACCEPTED) {
+                await updateOrderById({ orderStatus: OrderStatus.CONFIRMED }, orderId)
+                await sendETARequest({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId })
+            }
+            if (restaurantReply === RESTAURANT_REPLAY_WHATSAPP.REJECTED) {
+                await updateOrderById({ orderStatus: OrderStatus.CANCELED_RESTAURANT }, orderId)
+            }
+            switch (restaurantReply) {
+                case RESTAURANT_REPLAY_WHATSAPP[1200]:
+                case RESTAURANT_REPLAY_WHATSAPP[1800]:
+                case RESTAURANT_REPLAY_WHATSAPP[2400]:
+                case RESTAURANT_REPLAY_WHATSAPP[3000]:
+                case RESTAURANT_REPLAY_WHATSAPP[3600]:
+                case RESTAURANT_REPLAY_WHATSAPP[4200]:
+                case RESTAURANT_REPLAY_WHATSAPP[5400]:
+                case RESTAURANT_REPLAY_WHATSAPP[7200]:
+                    await updateOrderById({ eta: restaurantReply }, orderId)
+                    break;
+            }
+            console.log(restaurantReply, orderId)
+
         }
-        if (restaurantReply === RESTAURANT_REPLAY_WHATSAPP.REJECTED) {
-            await updateOrderById({ orderStatus: OrderStatus.CANCELED_RESTAURANT }, orderId)
-        }
-        console.log(restaurantReply, orderId)
+
+
         reply.code(200).send({ status: "ok" })
     })
 

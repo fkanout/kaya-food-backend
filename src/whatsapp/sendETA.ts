@@ -3,7 +3,7 @@ import { WhatsAppMessageResponse } from "../types"
 export const sendETARequest = async ({
     // restaurantPhoneNumber,
     whatsAppOrderMessageId,
-    // orderId
+    orderId
 }: {
     restaurantPhoneNumber: string,
     whatsAppOrderMessageId: string,
@@ -138,22 +138,57 @@ export const sendETARequest = async ({
                     {
                         type: 'reply',
                         reply: {
-                            id: 'option_1',
-                            title: 'Option 1'
+                            id: `${1200}:${orderId}`,
+                            title: '٢٠ دقيقة'
                         }
                     },
                     {
                         type: 'reply',
                         reply: {
-                            id: 'option_2',
-                            title: 'Option 2'
+                            id: `${1800}:${orderId}`,
+                            title: '٣٠ دقيقة'
                         }
                     },
                     {
                         type: 'reply',
                         reply: {
-                            id: 'option_3',
-                            title: 'Option 3'
+                            id: `${2400}:${orderId}`,
+                            title: '٤٠ دقيقة'
+                        }
+                    },
+                    {
+                        type: 'reply',
+                        reply: {
+                            id: `${3000}:${orderId}`,
+                            title: '٥٠ دقيقة'
+                        }
+                    },
+                    {
+                        type: 'reply',
+                        reply: {
+                            id: `${3600}:${orderId}`,
+                            title: '١ ساعة'
+                        }
+                    },
+                    {
+                        type: 'reply',
+                        reply: {
+                            id: `${4200}:${orderId}`,
+                            title: '١ ساعة و ١٠ دقائق'
+                        }
+                    },
+                    {
+                        type: 'reply',
+                        reply: {
+                            id: `${5400}:${orderId}`,
+                            title: '١ ساعة ونصف'
+                        }
+                    },
+                    {
+                        type: 'reply',
+                        reply: {
+                            id: `${7200}:${orderId}`,
+                            title: '٢ ساعة'
                         }
                     }
                 ]

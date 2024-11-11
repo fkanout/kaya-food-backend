@@ -64,6 +64,7 @@ interface UpdateOrder {
     restaurantNotes?: string[];
     clientNotes?: string[]
     whatsAppOrderMessageId?: string;
+    eta?: string
 }
 export async function updateOrderById(order: UpdateOrder, orderId: string) {
     const orderRef = db.collection("orders").doc(orderId);
