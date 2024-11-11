@@ -78,20 +78,20 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
             if (restaurantReply === RESTAURANT_REPLAY_WHATSAPP.REJECTED) {
                 await updateOrderById({ orderStatus: OrderStatus.CANCELED_RESTAURANT }, orderId)
             }
-            if (messagePayloadById) {
-                const [restaurantReply, orderId] = messagePayload.split("_");
+            console.log(restaurantReply, orderId)
 
-                switch (restaurantReply) {
-                    case RESTAURANT_REPLAY_WHATSAPP[1800]:
-                    case RESTAURANT_REPLAY_WHATSAPP[2700]:
-                    case RESTAURANT_REPLAY_WHATSAPP[3600]: {
-                        const [, eta,] = restaurantReply.split("_")
-                        await updateOrderById({ eta }, orderId)
-                        break;
-                    }
+        }
+        if (messagePayloadById) {
+            switch (messagePayloadById) {
+                case RESTAURANT_REPLAY_WHATSAPP[1800]:
+                case RESTAURANT_REPLAY_WHATSAPP[2700]:
+                case RESTAURANT_REPLAY_WHATSAPP[3600]: {
+                    const [, eta, orderId] = messagePayloadById.split("_")
+                    await updateOrderById({ eta }, orderId)
+                    console.log(messagePayloadById, orderId)
+                    break;
                 }
             }
-            console.log(restaurantReply, orderId)
         }
         reply.code(200).send({ status: "ok" })
     })
