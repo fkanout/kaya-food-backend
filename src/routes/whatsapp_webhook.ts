@@ -4,6 +4,7 @@ import { OFS_REPLIES, RESTAURANT_REPLAY_WHATSAPP, WhatsAppWebhook } from "../typ
 import { getOrderById, OrderStatus, updateOrderById } from "../db/orders";
 import { getCache, setCache } from "../cache";
 import { sendETARequest } from "../whatsapp/sendETA";
+import { sendOFS } from "../whatsapp/sendOFS";
 // const mock = {
 //     "object": "whatsapp_business_account",
 //     "entry": [
@@ -79,6 +80,11 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
             }
             if (restaurantReply === RESTAURANT_REPLAY_WHATSAPP.REJECTED) {
                 await updateOrderById({ orderStatus: OrderStatus.CANCELED_RESTAURANT }, orderId)
+                const order = await getOrderById(orderId)
+                if (order) {
+                    await sendOFS({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId, items: order.items })
+                }
+
             }
             console.log(restaurantReply, orderId)
         }

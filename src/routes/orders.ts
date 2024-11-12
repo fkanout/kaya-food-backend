@@ -57,7 +57,7 @@ export default async function ordersRoute(server: FastifyInstance) {
                     id: hashString(item.name, item.note, item.note),
                     name: item.name,
                     quantity: item.quantity,
-                    note: item.note
+                    note: item.note || ""
                 }
             });
             const order = await storeOrder({
