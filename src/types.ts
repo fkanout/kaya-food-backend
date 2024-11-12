@@ -79,7 +79,7 @@ export const RESTAURANT_REPLAY_WHATSAPP = {
     DELIVERY_UNAVAILABLE: "delivery_unavailable",
     RESTAURANT_CLOSED: "restaurant_closed",
     CONTACT_CLIENT: "contact_client",
-    1800: "sec_1800", // 30 min
-    2700: "sec_2700", // 45 min
-    3600: "sec_3600", // 1 hour 
+    1800: "1800", // 30 min
+    2700: "2700", // 45 min
+    3600: "3600", // 1 hour 
 } as const

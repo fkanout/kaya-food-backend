@@ -82,11 +82,12 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
 
         }
         if (messagePayloadById) {
-            switch (messagePayloadById) {
+            const [, eta, orderId] = messagePayloadById.split("_")
+
+            switch (eta) {
                 case RESTAURANT_REPLAY_WHATSAPP[1800]:
                 case RESTAURANT_REPLAY_WHATSAPP[2700]:
                 case RESTAURANT_REPLAY_WHATSAPP[3600]: {
-                    const [, eta, orderId] = messagePayloadById.split("_")
                     await updateOrderById({ eta }, orderId)
                     console.log(messagePayloadById, orderId)
                     break;
