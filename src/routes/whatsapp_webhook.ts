@@ -79,8 +79,10 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
                 await updateOrderById({ orderStatus: OrderStatus.CANCELED_RESTAURANT }, orderId)
             }
             console.log(restaurantReply, orderId)
-
         }
+
+        console.log("messagePayloadById", messagePayloadById)
+
         if (messagePayloadById) {
             console.log(messagePayloadById)
             const [, eta, orderId] = messagePayloadById.split("_")
