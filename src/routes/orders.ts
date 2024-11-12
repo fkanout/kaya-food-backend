@@ -84,6 +84,8 @@ export default async function ordersRoute(server: FastifyInstance) {
                     order: hashedItems
                 })
                 if (whatsAppOrderMessageId) {
+                    // await sendOFS({ whatsAppOrderMessageId, orderId, items: hashedItems, restaurantPhoneNumber: whatsappPhoneNumber })
+
                     const orderUpdated = await updateOrderById({ whatsAppOrderMessageId }, orderId)
                     return reply.send({
                         ...orderUpdated

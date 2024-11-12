@@ -13,7 +13,7 @@ export const sendOFS = async ({
     orderId: string,
     items: Item[]
 }): Promise<string | undefined> => {
-    const etaTemplate = {
+    const ofsTemplate = {
         "recipient_type": "individual",
         "messaging_product": "whatsapp",
         "to": "33750930539",//TODO: Restaurant phone number
@@ -38,8 +38,8 @@ export const sendOFS = async ({
                         "rows": items.map((item) => {
                             return {
                                 "id": `OFS_${orderId}_${item.id}_${OFS_REPLIES.NOT_AVAILABLE}`,
-                                "title": item.name,
-                                "description": item.quantity
+                                "title": item.name + " " + "الغاء",
+                                "description": item.quantity + " " + "عدد"
                             }
                         })
                     },
@@ -48,8 +48,8 @@ export const sendOFS = async ({
                         "rows": items.map((item) => {
                             return {
                                 "id": `OFS_${orderId}_${item.id}_${OFS_REPLIES.NOTE_ISSUE}`,
-                                "title": item.note,
-                                "description": item.name
+                                "title": item.name + " " + " الغاء الملاحظة لـ",
+                                "description": item.note
                             }
                         })
                     }
@@ -61,7 +61,8 @@ export const sendOFS = async ({
         }
     };
     try {
-        const whatsappReq = await axios.post("https://graph.facebook.com/v20.0/467098409816102/messages", etaTemplate, { headers: { 'Authorization': `Bearer ${process.env.WHATSAPP_API_KEY}` } })
+        console.log(JSON.stringify(ofsTemplate))
+        const whatsappReq = await axios.post("https://graph.facebook.com/v20.0/467098409816102/messages", ofsTemplate, { headers: { 'Authorization': `Bearer ${process.env.WHATSAPP_API_KEY}` } })
         const reqRes = whatsappReq.data as unknown as WhatsAppMessageResponse
         if (reqRes.messages[0].message_status === 'accepted') {
             return reqRes.messages[0].id
