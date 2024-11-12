@@ -1,6 +1,7 @@
 export interface WhatsAppWebhook {
     object: string;
     entry: Entry[];
+    messages?: InteractiveMessages;
 }
 
 interface Entry {
@@ -49,15 +50,14 @@ interface MessageContext {
 }
 
 interface Button {
-    payload?: string;
-    id?: string;
+    payload: string;
     text: string;
 }
 
 export interface WhatsAppMessageResponse {
     messaging_product: string;
     contacts: Contact[];
-    messages: Message[];
+    messages: Message[]
 }
 
 interface Contact {
@@ -69,7 +69,23 @@ interface Message {
     id: string;
     message_status: string;
 }
-
+type InteractiveMessages = {
+    context: {
+        from: string;
+        id: string;
+    };
+    from: string;
+    id: string;
+    timestamp: string;
+    type: string;
+    interactive: {
+        type: string;
+        button_reply: {
+            id: string;
+            title: string;
+        };
+    };
+}[];
 
 
 export const RESTAURANT_REPLAY_WHATSAPP = {

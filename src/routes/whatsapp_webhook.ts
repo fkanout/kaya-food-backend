@@ -48,6 +48,7 @@ import { sendETARequest } from "../whatsapp/sendETA";
 //         }
 //     ]
 // }
+
 export default async function whatsappWebhookRoute(server: FastifyInstance) {
     server.get('/whatsapp_webhook', { preHandler: server.whatsAppHook }, async (request, reply) => {
         const query = request.query as Record<string, string>
@@ -58,7 +59,7 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
         const body = request.body as WhatsAppWebhook
         console.log(JSON.stringify(body.entry?.[0]?.changes[0]?.value))
         const messagePayload = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button?.payload
-        const messagePayloadById = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button?.id
+        const messagePayloadById = body?.messages?.[0].interactive?.button_reply?.id
         const whatsAppMessageId = body.entry?.[0]?.changes[0]?.value?.messages?.[0].id
         const from = body.entry?.[0]?.changes[0]?.value?.messages?.[0].from
         if (!whatsAppMessageId) {
@@ -86,7 +87,7 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
 
         if (messagePayloadById) {
             console.log(messagePayloadById)
-            const [, eta, orderId] = messagePayloadById.split("_")
+            const [eta, orderId] = messagePayloadById.split("_")
             console.log(eta, orderId)
 
             switch (eta) {
