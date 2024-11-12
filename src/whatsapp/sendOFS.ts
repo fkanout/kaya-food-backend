@@ -38,7 +38,7 @@ export const sendOFS = async ({
                         "rows": items.map((item) => {
                             return {
                                 "id": `OFS_${orderId}_${item.id}_${OFS_REPLIES.NOT_AVAILABLE}`,
-                                "title": item.name + " " + "الغاء",
+                                "title": item.name,
                                 "description": item.quantity + " " + "عدد"
                             }
                         })
@@ -48,7 +48,7 @@ export const sendOFS = async ({
                         "rows": items.map((item) => {
                             return {
                                 "id": `OFS_${orderId}_${item.id}_${OFS_REPLIES.NOTE_ISSUE}`,
-                                "title": item.name + " " + " الغاء الملاحظة لـ",
+                                "title": item.name,
                                 "description": item.note
                             }
                         })
