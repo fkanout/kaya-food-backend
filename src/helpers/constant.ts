@@ -27,3 +27,4 @@ export const RESTAURANTS_URL_QRLIST = {
 export const RESTAURANTS_URL_LAMAZ = {
     SAJ: `https://saj.macho.menu/ar/osxzw-2fzue-tqqym`,
 } as const;
+

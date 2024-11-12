@@ -1,3 +1,4 @@
+import { WaitingThe } from "../types";
 import { DB_COLLECTIONS } from "./constants";
 
 
@@ -16,6 +17,7 @@ export const OrderStatus = {
 export type OrderStatus = (typeof OrderStatus)[keyof typeof OrderStatus];
 
 export interface Item {
+    id: string
     name: string;
     quantity: number;
     note: string;
@@ -34,7 +36,10 @@ interface Order {
     orderStatus: OrderStatus;
     restaurantNotes?: string[];
     clientNotes?: string[];
-    whatsAppOrderMessageId?: string
+    whatsAppOrderMessageId?: string;
+    itemsAfterOFS?: Item[];
+    waitingThe?: WaitingThe,
+    eta?: string
 }
 
 export async function storeOrder(order: Order) {
@@ -64,7 +69,28 @@ interface UpdateOrder {
     restaurantNotes?: string[];
     clientNotes?: string[]
     whatsAppOrderMessageId?: string;
-    eta?: string
+    eta?: string,
+    waitingThe?: WaitingThe,
+    itemsAfterOFS?: Item[]
+}
+
+export async function getOrderById(orderId: string): Promise<Order | null> {
+    try {
+        const orderRef = db.collection("orders").doc(orderId);
+        const orderDoc = await orderRef.get();
+
+        if (orderDoc.exists) {
+            const orderData = orderDoc.data();
+            console.log("Order data:", orderData);
+            return orderData as Order;
+        } else {
+            console.log("No order found with this ID.");
+            return null;
+        }
+    } catch (error) {
+        console.error("Error fetching order:", error);
+        throw error;
+    }
 }
 export async function updateOrderById(order: UpdateOrder, orderId: string) {
     const orderRef = db.collection("orders").doc(orderId);

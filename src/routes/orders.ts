@@ -4,6 +4,8 @@ import { Restaurant } from "../helpers/types";
 import { OrderStatus, storeOrder, updateOrderById } from "../db/orders";
 import { getClientByPhoneNumber } from "../db/clients";
 import { sendWhatsappOrder } from "../whatsapp/sendOrder";
+import { hashString } from "../helpers/hash";
+
 interface Item {
     name: string;
     quantity: number;
@@ -50,13 +52,21 @@ export default async function ordersRoute(server: FastifyInstance) {
         try {
             const { data } = await axios(restaurantURL);
             const { whatsappPhoneNumber, restaurantTitle } = data as Restaurant
+            const hashedItems = items.map(item => {
+                return {
+                    id: hashString(item.name, item.note, item.note),
+                    name: item.name,
+                    quantity: item.quantity,
+                    note: item.note
+                }
+            });
             const order = await storeOrder({
                 restaurantId,
                 restaurantTitle: restaurantTitle.ar || restaurantId,
                 restaurantWhatsApp: whatsappPhoneNumber,
                 clientPhoneNumber: user.phoneNumber,
                 clientAddress: userData.address,
-                items,
+                items: hashedItems,
                 restaurantNotes: [],
                 orderStatus: OrderStatus.PENDING
             })
@@ -71,7 +81,7 @@ export default async function ordersRoute(server: FastifyInstance) {
                     clientResidence: userData.address.residence,
                     clientBlock: userData.address.block,
                     clientFlat: userData.address.flat,
-                    order: items
+                    order: hashedItems
                 })
                 if (whatsAppOrderMessageId) {
                     const orderUpdated = await updateOrderById({ whatsAppOrderMessageId }, orderId)

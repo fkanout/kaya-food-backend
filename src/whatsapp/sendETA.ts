@@ -126,7 +126,7 @@ export const sendETARequest = async ({
     // }
     const etaTemplate = {
         messaging_product: 'whatsapp',
-        to: "33750930539",
+        "to": "33750930539",//TODO: Restaurant phone number
         type: 'interactive',
         interactive: {
             type: 'button',
@@ -138,21 +138,21 @@ export const sendETARequest = async ({
                     {
                         type: 'reply',
                         reply: {
-                            id: `${RESTAURANT_REPLAY_WHATSAPP[1800]}_${orderId}`,
+                            id: `ETA_${RESTAURANT_REPLAY_WHATSAPP[1800]}_${orderId}`,
                             title: '١٥-٣٠ دقيقة'
                         }
                     },
                     {
                         type: 'reply',
                         reply: {
-                            id: `${RESTAURANT_REPLAY_WHATSAPP[2700]}_${orderId}`,
+                            id: `ETA_${RESTAURANT_REPLAY_WHATSAPP[2700]}_${orderId}`,
                             title: '٣٠-٤٥ دقيقة'
                         }
                     },
                     {
                         type: 'reply',
                         reply: {
-                            id: `${RESTAURANT_REPLAY_WHATSAPP[3600]}_${orderId}`,
+                            id: `ETA_${RESTAURANT_REPLAY_WHATSAPP[3600]}_${orderId}`,
                             title: '٤٥-٦٠ دقيقة'
                         }
                     },

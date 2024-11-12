@@ -1,7 +1,7 @@
 
 import { FastifyInstance } from "fastify";
-import { RESTAURANT_REPLAY_WHATSAPP, WhatsAppWebhook } from "../types";
-import { OrderStatus, updateOrderById } from "../db/orders";
+import { OFS_REPLIES, RESTAURANT_REPLAY_WHATSAPP, WhatsAppWebhook } from "../types";
+import { getOrderById, OrderStatus, updateOrderById } from "../db/orders";
 import { getCache, setCache } from "../cache";
 import { sendETARequest } from "../whatsapp/sendETA";
 // const mock = {
@@ -86,22 +86,44 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
         console.log("messagePayloadById", messagePayloadById)
 
         if (messagePayloadById) {
-            console.log(messagePayloadById)
-            const [eta, orderId] = messagePayloadById.split("_")
-            console.log(eta, orderId)
 
-            switch (eta) {
-                case RESTAURANT_REPLAY_WHATSAPP[1800]:
-                case RESTAURANT_REPLAY_WHATSAPP[2700]:
-                case RESTAURANT_REPLAY_WHATSAPP[3600]: {
-                    await updateOrderById({ eta }, orderId)
-                    console.log(messagePayloadById, orderId)
-                    break;
+            if (messagePayloadById.startsWith("ETA")) {
+                const [, eta, orderId] = messagePayloadById.split("_")
+                console.log(eta, orderId)
+                switch (eta) {
+                    case RESTAURANT_REPLAY_WHATSAPP[1800]:
+                    case RESTAURANT_REPLAY_WHATSAPP[2700]:
+                    case RESTAURANT_REPLAY_WHATSAPP[3600]: {
+                        await updateOrderById({ eta }, orderId)
+                        console.log(messagePayloadById, orderId)
+                        break;
+                    }
+                }
+
+            } else if (messagePayloadById.startsWith("OFS")) {
+                const [, orderId, itemId, reason] = messagePayloadById.split("_")
+                if (reason === OFS_REPLIES.NOTE_ISSUE) {
+                    const order = await getOrderById(orderId)
+                    if (order) {
+                        const itemsAfterOFS = order.items.map(item => {
+                            if (item.id === itemId) {
+                                return { ...item, note: "" }; // Empty the note if name is "faisal"
+                            }
+                            return item;
+                        });
+                        await updateOrderById({ itemsAfterOFS }, orderId)
+                    }
+                } else if (reason === OFS_REPLIES.NOT_AVAILABLE) {
+                    const order = await getOrderById(orderId)
+                    if (order) {
+                        const itemsAfterOFS = order.items.filter(item => item.id !== itemId);
+                        await updateOrderById({ itemsAfterOFS }, orderId)
+                    }
                 }
             }
         }
         reply.code(200).send({ status: "ok" })
+
+
     })
-
-
 }

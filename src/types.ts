@@ -89,3 +89,16 @@ export const RESTAURANT_REPLAY_WHATSAPP = {
     2700: "2700", // 45 min
     3600: "3600", // 1 hour 
 } as const
+
+
+export const WAITING_THE = {
+    RESTAURANT: "restaurant",
+    CLIENT: "client"
+} as const
+export type WaitingThe = (typeof WAITING_THE)[keyof typeof WAITING_THE];
+
+
+export const OFS_REPLIES = {
+    NOT_AVAILABLE: "notAvailable",
+    NOTE_ISSUE: "noteIssue"
+} as const
