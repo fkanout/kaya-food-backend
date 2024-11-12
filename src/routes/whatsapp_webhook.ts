@@ -61,6 +61,7 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
         console.log(JSON.stringify(body.entry?.[0]?.changes[0]?.value))
         const messagePayload = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button?.payload
         const messagePayloadById = body.entry?.[0]?.changes[0]?.value?.messages?.[0].interactive?.button_reply?.id
+        const messagePayloadByLastReply = body.entry?.[0]?.changes[0]?.value?.messages?.[0].interactive?.list_reply?.id
         const whatsAppMessageId = body.entry?.[0]?.changes[0]?.value?.messages?.[0].id
         const from = body.entry?.[0]?.changes[0]?.value?.messages?.[0].from
         if (!whatsAppMessageId) {
@@ -106,9 +107,13 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
                         break;
                     }
                 }
+            }
 
-            } else if (messagePayloadById.startsWith("OFS")) {
-                const [, orderId, itemId, reason] = messagePayloadById.split("_")
+        }
+
+        if (messagePayloadByLastReply) {
+            if (messagePayloadByLastReply.startsWith("OFS")) {
+                const [, orderId, itemId, reason] = messagePayloadByLastReply.split("_")
                 if (reason === OFS_REPLIES.NOTE_ISSUE) {
                     const order = await getOrderById(orderId)
                     if (order) {
