@@ -6,6 +6,7 @@ import { getCache, setCache } from "../cache";
 import { sendETARequest } from "../whatsapp/sendETA";
 import { sendOFS } from "../whatsapp/sendOFS";
 import { sendFinishOFS } from "../whatsapp/sendFinishOFS";
+import { sendInfo } from "../whatsapp/sendInfo";
 // const mock = {
 //     "object": "whatsapp_business_account",
 //     "entry": [
@@ -121,7 +122,7 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
                     const order = await getOrderById(orderId)
                     if (order) {
                         await updateOrderById({ orderStatus: OrderStatus.CONFIRMED }, orderId)
-                        await sendETARequest({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId })
+                        await sendInfo({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from })
                     }
                 }
             }
