@@ -52,7 +52,7 @@ export const sendOFS = async ({
             sendInfo({ whatsAppOrderMessageId, restaurantPhoneNumber: '33750930539', body: "لا يوجد طلب لتعديله" })
             throw ('Nothing to modify')
         }
-        if (isNoteIssue && items.filter(item => item.note && item.note !== "").length !== 0) {
+        if (isNoteIssue) {
             ofsTemplate.interactive.action.sections = [
                 {
                     "title": "مشكلة في الملاحظة",
