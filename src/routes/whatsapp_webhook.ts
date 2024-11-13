@@ -5,8 +5,9 @@ import { getOrderById, Item, OrderStatus, updateOrderById } from "../db/orders";
 import { getCache, setCache } from "../cache";
 import { sendETARequest } from "../whatsapp/sendETA";
 import { sendOFS } from "../whatsapp/sendOFS";
-import { sendFinishOFS } from "../whatsapp/sendFinishOFS";
 import { sendInfo } from "../whatsapp/sendInfo";
+import { sendModifyOrder } from "../whatsapp/sendModifyOrder";
+
 // const mock = {
 //     "object": "whatsapp_business_account",
 //     "entry": [
@@ -77,79 +78,93 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
         if (messagePayload) {
             console.log(messagePayload);
             const [restaurantReply, orderId] = messagePayload.split(":");
+
             if (restaurantReply === RESTAURANT_REPLAY_WHATSAPP.ACCEPTED) {
                 await updateOrderById({ orderStatus: OrderStatus.CONFIRMED }, orderId)
                 await sendETARequest({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId })
             }
+
             if (restaurantReply === RESTAURANT_REPLAY_WHATSAPP.REJECTED) {
                 await updateOrderById({ orderStatus: OrderStatus.CANCELED_RESTAURANT }, orderId)
                 const order = await getOrderById(orderId)
                 if (order) {
-                    console.log("sending OFS")
-                    await sendOFS({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId, items: order.items })
-                }
+                    console.log("sending sendUnavailableOrNoteIssue")
+                    const items = (order?.itemsAfterOFS && order?.itemsAfterOFS?.length > 0 ? order?.itemsAfterOFS : order?.items) || []
 
-            }
-            console.log(restaurantReply, orderId)
-        }
-
-        console.log("messagePayloadById", messagePayloadById)
-
-        if (messagePayloadById) {
-
-            if (messagePayloadById.startsWith("ETA")) {
-                const [, eta, orderId] = messagePayloadById.split("_")
-                console.log(eta, orderId)
-                switch (eta) {
-                    case RESTAURANT_REPLAY_WHATSAPP[1800]:
-                    case RESTAURANT_REPLAY_WHATSAPP[2700]:
-                    case RESTAURANT_REPLAY_WHATSAPP[3600]: {
-                        await updateOrderById({ eta }, orderId)
-                        console.log(messagePayloadById, orderId)
-                        break;
-                    }
-                }
-            } else if (messagePayloadById.startsWith("OFS")) {
-                const [, orderId, reason] = messagePayloadById.split("_")
-                if (reason === OFS_REPLIES.REDO) {
-                    const order = await getOrderById(orderId)
-                    if (order) {
-                        await updateOrderById({ itemsAfterOFS: [] }, orderId)
-                        await sendOFS({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId, items: order.items })
-                    }
-
-                } else if (reason === OFS_REPLIES.DONE) {
-                    const order = await getOrderById(orderId)
-                    if (order) {
-                        await updateOrderById({ orderStatus: OrderStatus.PENDING_CLIENT }, orderId)
-                        await sendInfo({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from })
+                    const isOrderHasNotes = order.items.some(item => item.note && item.note.length > 0);
+                    if (isOrderHasNotes) {
+                        await sendModifyOrder({ restaurantPhoneNumber: from, orderId, order: items })
+                    } else {
+                        await sendOFS({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId, items: items, isNoteIssue: false })
                     }
                 }
             }
-        }
 
-        if (messagePayloadByLastReply) {
-            if (messagePayloadByLastReply.startsWith("OFS")) {
-                const [, orderId, itemId, reason] = messagePayloadByLastReply.split("_")
+            if (restaurantReply === OFS_REPLIES.REDO) {
                 const order = await getOrderById(orderId)
-                const items = (order?.itemsAfterOFS && order?.itemsAfterOFS?.length > 0 ? order?.itemsAfterOFS : order?.items) || []
-                let itemsAfterOFS: Item[] = [];
-                if (reason === OFS_REPLIES.NOTE_ISSUE) {
-                    itemsAfterOFS = items.map(item => {
-                        if (item.id === itemId) {
-                            return { ...item, note: "" };
-                        }
-                        return item;
-                    });
-                } else if (reason === OFS_REPLIES.NOT_AVAILABLE) {
-                    itemsAfterOFS = items.filter(item => item.id !== itemId);
+                if (order) {
+                    await updateOrderById({ itemsAfterOFS: [] }, orderId)
+                    const isOrderHasNotes = order.items.some(item => item.note && item.note.length > 0);
+                    const items = (order?.itemsAfterOFS && order?.itemsAfterOFS?.length > 0 ? order?.itemsAfterOFS : order?.items) || []
+                    if (isOrderHasNotes) {
+                        await sendModifyOrder({ restaurantPhoneNumber: from, orderId, order: items })
+                    } else {
+                        await sendOFS({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId, items: items, isNoteIssue: false })
+                    }
                 }
-                const updatedOrder = await updateOrderById({ itemsAfterOFS }, orderId)
-                await sendOFS({ whatsAppOrderMessageId: whatsAppMessageId, orderId, restaurantPhoneNumber: from, items: updatedOrder?.itemsAfterOFS || [] })
-                await sendFinishOFS({ whatsAppOrderMessageId: whatsAppMessageId, orderId, restaurantPhoneNumber: from })
-            }
-        }
 
-        reply.code(200).send({ status: "ok" })
+            }
+            if (restaurantReply === OFS_REPLIES.DONE) {
+                const order = await getOrderById(orderId)
+                if (order) {
+                    await updateOrderById({ orderStatus: OrderStatus.PENDING_CLIENT }, orderId)
+                    await sendInfo({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, body: "تم ارسال الطلب المعدّل و بإنتظار تأكيد الزبون" })
+                }
+
+                console.log(restaurantReply, orderId)
+            }
+
+            console.log("messagePayloadById", messagePayloadById)
+
+            if (messagePayloadById) {
+
+                if (messagePayloadById.startsWith("ETA")) {
+                    const [, eta, orderId] = messagePayloadById.split("_")
+                    console.log(eta, orderId)
+                    switch (eta) {
+                        case RESTAURANT_REPLAY_WHATSAPP[1800]:
+                        case RESTAURANT_REPLAY_WHATSAPP[2700]:
+                        case RESTAURANT_REPLAY_WHATSAPP[3600]: {
+                            await updateOrderById({ eta }, orderId)
+                            console.log(messagePayloadById, orderId)
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (messagePayloadByLastReply) {
+                if (messagePayloadByLastReply.startsWith("OFS")) {
+                    const [, orderId, itemId, reason] = messagePayloadByLastReply.split("_")
+                    const order = await getOrderById(orderId)
+                    const items = (order?.itemsAfterOFS && order?.itemsAfterOFS?.length > 0 ? order?.itemsAfterOFS : order?.items) || []
+                    let itemsAfterOFS: Item[] = [];
+                    if (reason === OFS_REPLIES.NOTE_ISSUE) {
+                        itemsAfterOFS = items.map(item => {
+                            if (item.id === itemId) {
+                                return { ...item, note: "" };
+                            }
+                            return item;
+                        });
+                    } else if (reason === OFS_REPLIES.NOT_AVAILABLE) {
+                        itemsAfterOFS = items.filter(item => item.id !== itemId);
+                    }
+                    const updatedOrder = await updateOrderById({ itemsAfterOFS }, orderId)
+                    await sendModifyOrder({ restaurantPhoneNumber: from, orderId, order: updatedOrder?.itemsAfterOFS || [] })
+                }
+            }
+
+            reply.code(200).send({ status: "ok" })
+        }
     })
 }

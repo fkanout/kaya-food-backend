@@ -6,9 +6,11 @@ import { WhatsAppMessageResponse } from "../types"
 export const sendInfo = async ({
     // restaurantPhoneNumber,
     whatsAppOrderMessageId,
+    body,
 }: {
     restaurantPhoneNumber: string,
     whatsAppOrderMessageId: string,
+    body: string
 }): Promise<string | undefined> => {
     const infoTemplate = {
         "recipient_type": "individual",
@@ -16,7 +18,7 @@ export const sendInfo = async ({
         "to": "33750930539",//TODO: Restaurant phone number
         "type": "text",
         "text": {
-            "body": "تم ارسال الطلب المعدّل و بإنتظار تأكيد الزبون"
+            "body": body
         },
         "context": {
             message_id: whatsAppOrderMessageId

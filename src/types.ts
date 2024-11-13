@@ -101,5 +101,7 @@ export const OFS_REPLIES = {
     NOT_AVAILABLE: "notAvailable",
     NOTE_ISSUE: "noteIssue",
     DONE: "done",
-    REDO: "redo"
+    REDO: "redo",
+    NOT_AVAILABLE_SELECTED: "notAvailableSelected",
+    NOTE_ISSUE_SELECTED: "noteIssueSelected",
 } as const

@@ -1,17 +1,20 @@
 import axios from "axios"
 import { OFS_REPLIES, WhatsAppMessageResponse } from "../types"
 import { Item } from "../db/orders";
+import { sendInfo } from "./sendInfo";
 
 export const sendOFS = async ({
     // restaurantPhoneNumber,
     whatsAppOrderMessageId,
     orderId,
-    items
+    items,
+    isNoteIssue
 }: {
     restaurantPhoneNumber: string,
     whatsAppOrderMessageId: string,
     orderId: string,
-    items: Item[]
+    items: Item[],
+    isNoteIssue: boolean
 }): Promise<string | undefined> => {
     const ofsTemplate = {
         "recipient_type": "individual",
@@ -33,7 +36,7 @@ export const sendOFS = async ({
             "action": {
                 "button": "اختر عنصر واحد",
                 "sections": [
-                    {
+                    !isNoteIssue && {
                         "title": "غير متوفر",
                         "rows": items.map((item) => {
                             return {
@@ -43,7 +46,7 @@ export const sendOFS = async ({
                             }
                         })
                     },
-                    {
+                    isNoteIssue && {
                         "title": "مشكلة في الملاحظة",
                         "rows": items.filter(item => item.note && item.note !== "").map((item) => {
                             return {
@@ -62,9 +65,10 @@ export const sendOFS = async ({
     };
     try {
         console.log(JSON.stringify(ofsTemplate))
-        ofsTemplate.interactive.action.sections = ofsTemplate.interactive.action.sections.filter(
-            (section, index) => !(index === 0 && section.rows.length === 0 || index === 1 && section.rows.length === 0)
-        );
+        if (ofsTemplate.interactive.action.sections[0] && ofsTemplate.interactive.action.sections[0].rows.length === 0) {
+            sendInfo({ whatsAppOrderMessageId, restaurantPhoneNumber: '33750930539', body: "لا يوجد طلب لتعديله" })
+            throw ('Nothing to modify')
+        }
 
         const whatsappReq = await axios.post("https://graph.facebook.com/v20.0/467098409816102/messages", ofsTemplate, { headers: { 'Authorization': `Bearer ${process.env.WHATSAPP_API_KEY}` } })
         const reqRes = whatsappReq.data as unknown as WhatsAppMessageResponse
