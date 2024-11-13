@@ -116,8 +116,9 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
                 const [, orderId, itemId, reason] = messagePayloadByLastReply.split("_")
                 if (reason === OFS_REPLIES.NOTE_ISSUE) {
                     const order = await getOrderById(orderId)
+                    const items = order?.itemsAfterOFS || order?.items || [];
                     if (order) {
-                        const itemsAfterOFS = order.items.map(item => {
+                        const itemsAfterOFS = items.map(item => {
                             if (item.id === itemId) {
                                 return { ...item, note: "" }; // Empty the note if name is "faisal"
                             }
@@ -125,12 +126,12 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
                         });
                         const updatedOrder = await updateOrderById({ itemsAfterOFS }, orderId)
                         await sendOFS({ whatsAppOrderMessageId: whatsAppMessageId, orderId, restaurantPhoneNumber: from, items: updatedOrder?.itemsAfterOFS || [] })
-
                     }
                 } else if (reason === OFS_REPLIES.NOT_AVAILABLE) {
                     const order = await getOrderById(orderId)
                     if (order) {
-                        const itemsAfterOFS = order.items.filter(item => item.id !== itemId);
+                        const items = order.itemsAfterOFS || order.items;
+                        const itemsAfterOFS = items.filter(item => item.id !== itemId);
                         const updatedOrder = await updateOrderById({ itemsAfterOFS }, orderId)
                         await sendOFS({ whatsAppOrderMessageId: whatsAppMessageId, orderId, restaurantPhoneNumber: from, items: updatedOrder?.itemsAfterOFS || [] })
                     }
