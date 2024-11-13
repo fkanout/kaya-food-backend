@@ -61,7 +61,7 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
 
     server.post('/whatsapp_webhook', async (request, reply) => {
         const body = request.body as WhatsAppWebhook
-        console.log(JSON.stringify(body.entry?.[0]?.changes[0]?.value))
+        console.log("body", JSON.stringify(body), "\n\n\n")
         const messagePayload = body.entry?.[0]?.changes[0]?.value?.messages?.[0].button?.payload
         const messagePayloadById = body.entry?.[0]?.changes[0]?.value?.messages?.[0].interactive?.button_reply?.id
         const messagePayloadByLastReply = body.entry?.[0]?.changes[0]?.value?.messages?.[0].interactive?.list_reply?.id
@@ -76,7 +76,7 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
         }
         setCache(whatsAppMessageId, true)
         if (messagePayload) {
-            console.log(messagePayload);
+            console.log("messagePayload", messagePayload, "\n\n\n");
             const [restaurantReply, orderId] = messagePayload.split(":");
 
             if (restaurantReply === RESTAURANT_REPLAY_WHATSAPP.ACCEPTED) {

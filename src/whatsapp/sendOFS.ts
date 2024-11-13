@@ -48,7 +48,6 @@ export const sendOFS = async ({
         }
     };
     try {
-        console.log(JSON.stringify(ofsTemplate))
         if (ofsTemplate.interactive.action.sections[0] && ofsTemplate.interactive.action.sections[0].rows.length === 0) {
             sendInfo({ whatsAppOrderMessageId, restaurantPhoneNumber: '33750930539', body: "لا يوجد طلب لتعديله" })
             throw ('Nothing to modify')
@@ -81,6 +80,7 @@ export const sendOFS = async ({
                 }
             ]
         }
+        console.log("ofsTemplate:", JSON.stringify(ofsTemplate))
 
         const whatsappReq = await axios.post("https://graph.facebook.com/v20.0/467098409816102/messages", ofsTemplate, { headers: { 'Authorization': `Bearer ${process.env.WHATSAPP_API_KEY}` } })
         const reqRes = whatsappReq.data as unknown as WhatsAppMessageResponse
