@@ -45,7 +45,7 @@ export const sendOFS = async ({
                     },
                     {
                         "title": "مشكلة في الملاحظة",
-                        "rows": items.map((item) => {
+                        "rows": items.filter(item => item.note && item.note !== "").map((item) => {
                             return {
                                 "id": `OFS_${orderId}_${item.id}_${OFS_REPLIES.NOTE_ISSUE}`,
                                 "title": item.name,
