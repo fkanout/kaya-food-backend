@@ -5,6 +5,7 @@ import { getOrderById, OrderStatus, updateOrderById } from "../db/orders";
 import { getCache, setCache } from "../cache";
 import { sendETARequest } from "../whatsapp/sendETA";
 import { sendOFS } from "../whatsapp/sendOFS";
+import { sendFinishOFS } from "../whatsapp/sendFinishOFS";
 // const mock = {
 //     "object": "whatsapp_business_account",
 //     "entry": [
@@ -134,12 +135,25 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
                         const itemsAfterOFS = items.filter(item => item.id !== itemId);
                         const updatedOrder = await updateOrderById({ itemsAfterOFS }, orderId)
                         await sendOFS({ whatsAppOrderMessageId: whatsAppMessageId, orderId, restaurantPhoneNumber: from, items: updatedOrder?.itemsAfterOFS || [] })
+                        await sendFinishOFS({ whatsAppOrderMessageId: whatsAppMessageId, orderId, restaurantPhoneNumber: from })
+                    }
+                } else if (reason === OFS_REPLIES.REDO) {
+                    const order = await getOrderById(orderId)
+                    if (order) {
+                        await updateOrderById({ itemsAfterOFS: [] }, orderId)
+                        await sendOFS({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId, items: order.items })
+                    }
+
+                } else if (reason === OFS_REPLIES.DONE) {
+                    const order = await getOrderById(orderId)
+                    if (order) {
+                        await updateOrderById({ orderStatus: OrderStatus.CONFIRMED }, orderId)
+                        await sendETARequest({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId })
                     }
                 }
             }
+            reply.code(200).send({ status: "ok" })
         }
-        reply.code(200).send({ status: "ok" })
-
 
     })
 }

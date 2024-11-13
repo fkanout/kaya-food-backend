@@ -105,5 +105,7 @@ export type WaitingThe = (typeof WAITING_THE)[keyof typeof WAITING_THE];
 
 export const OFS_REPLIES = {
     NOT_AVAILABLE: "notAvailable",
-    NOTE_ISSUE: "noteIssue"
+    NOTE_ISSUE: "noteIssue",
+    DONE: "done",
+    REDO: "redo"
 } as const
