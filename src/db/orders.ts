@@ -98,7 +98,7 @@ export async function updateOrderById(order: UpdateOrder, orderId: string) {
         await orderRef.update(order as { [x: string]: unknown });
         console.log("Order updated successfully.");
         const orderSnapshot = await orderRef.get();
-        return { ...orderSnapshot.data(), id: orderSnapshot.id };
+        return { ...orderSnapshot.data(), id: orderSnapshot.id } as unknown as Order;
     } catch (error) {
         console.error("Error updating order:", error);
     }
