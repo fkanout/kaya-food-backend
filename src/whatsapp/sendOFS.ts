@@ -36,25 +36,9 @@ export const sendOFS = async ({
             "action": {
                 "button": "اختر عنصر واحد",
                 "sections": [
-                    !isNoteIssue && {
+                    {
                         "title": "غير متوفر",
-                        "rows": items.map((item) => {
-                            return {
-                                "id": `OFS_${orderId}_${item.id}_${OFS_REPLIES.NOT_AVAILABLE}`,
-                                "title": item.name.length > 24 ? item.name.slice(0, 21) + '...' : item.name,
-                                "description": item.quantity + " " + "عدد"
-                            }
-                        })
-                    },
-                    isNoteIssue && {
-                        "title": "مشكلة في الملاحظة",
-                        "rows": items.filter(item => item.note && item.note !== "").map((item) => {
-                            return {
-                                "id": `OFS_${orderId}_${item.id}_${OFS_REPLIES.NOTE_ISSUE}`,
-                                "title": item.name.length > 24 ? item.name.slice(0, 21) + '...' : item.name,
-                                "description": item.note.length > 72 ? item.note.slice(0, 68) + '...' : item.note,
-                            }
-                        })
+                        "rows": [{ id: "id", title: "title", description: "description" }]
                     }
                 ]
             }
@@ -68,6 +52,34 @@ export const sendOFS = async ({
         if (ofsTemplate.interactive.action.sections[0] && ofsTemplate.interactive.action.sections[0].rows.length === 0) {
             sendInfo({ whatsAppOrderMessageId, restaurantPhoneNumber: '33750930539', body: "لا يوجد طلب لتعديله" })
             throw ('Nothing to modify')
+        }
+        if (isNoteIssue && items.filter(item => item.note && item.note !== "").length !== 0) {
+            ofsTemplate.interactive.action.sections = [
+                {
+                    "title": "مشكلة في الملاحظة",
+                    "rows": items.filter(item => item.note && item.note !== "").map((item) => {
+                        return {
+                            "id": `OFS_${orderId}_${item.id}_${OFS_REPLIES.NOTE_ISSUE}`,
+                            "title": item.name.length > 24 ? item.name.slice(0, 21) + '...' : item.name,
+                            "description": item.note.length > 72 ? item.note.slice(0, 68) + '...' : item.note,
+                        }
+                    })
+                }
+
+            ]
+        } else if (!isNoteIssue && items.length !== 0) {
+            ofsTemplate.interactive.action.sections = [
+                {
+                    "title": "غير متوفر",
+                    "rows": items.map((item) => {
+                        return {
+                            "id": `OFS_${orderId}_${item.id}_${OFS_REPLIES.NOT_AVAILABLE}`,
+                            "title": item.name.length > 24 ? item.name.slice(0, 21) + '...' : item.name,
+                            "description": item.quantity + " " + "عدد"
+                        }
+                    })
+                }
+            ]
         }
 
         const whatsappReq = await axios.post("https://graph.facebook.com/v20.0/467098409816102/messages", ofsTemplate, { headers: { 'Authorization': `Bearer ${process.env.WHATSAPP_API_KEY}` } })

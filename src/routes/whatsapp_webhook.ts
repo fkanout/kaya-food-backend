@@ -157,6 +157,7 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
             }
 
             if (messagePayloadByLastReply) {
+                console.log("messagePayloadByLastReply", messagePayloadByLastReply)
                 if (messagePayloadByLastReply.startsWith("OFS")) {
                     const [, orderId, itemId, reason] = messagePayloadByLastReply.split("_")
                     const order = await getOrderById(orderId)
