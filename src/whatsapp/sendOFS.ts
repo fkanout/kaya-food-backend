@@ -67,7 +67,7 @@ export const sendOFS = async ({
         if (reqRes.messages[0].message_status === 'accepted') {
             return reqRes.messages[0].id
         } else {
-            throw ('Send WhatsApp order failed')
+            throw ('sendOFS failed')
         }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
