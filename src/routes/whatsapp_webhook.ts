@@ -108,8 +108,23 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
                         break;
                     }
                 }
-            }
+            } else if (messagePayloadById.startsWith("OFS")) {
+                const [, orderId, reason] = messagePayloadById.split("_")
+                if (reason === OFS_REPLIES.REDO) {
+                    const order = await getOrderById(orderId)
+                    if (order) {
+                        await updateOrderById({ itemsAfterOFS: [] }, orderId)
+                        await sendOFS({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId, items: order.items })
+                    }
 
+                } else if (reason === OFS_REPLIES.DONE) {
+                    const order = await getOrderById(orderId)
+                    if (order) {
+                        await updateOrderById({ orderStatus: OrderStatus.CONFIRMED }, orderId)
+                        await sendETARequest({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId })
+                    }
+                }
+            }
         }
 
         if (messagePayloadByLastReply) {
@@ -136,19 +151,6 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
                         const updatedOrder = await updateOrderById({ itemsAfterOFS }, orderId)
                         await sendOFS({ whatsAppOrderMessageId: whatsAppMessageId, orderId, restaurantPhoneNumber: from, items: updatedOrder?.itemsAfterOFS || [] })
                         await sendFinishOFS({ whatsAppOrderMessageId: whatsAppMessageId, orderId, restaurantPhoneNumber: from })
-                    }
-                } else if (reason === OFS_REPLIES.REDO) {
-                    const order = await getOrderById(orderId)
-                    if (order) {
-                        await updateOrderById({ itemsAfterOFS: [] }, orderId)
-                        await sendOFS({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId, items: order.items })
-                    }
-
-                } else if (reason === OFS_REPLIES.DONE) {
-                    const order = await getOrderById(orderId)
-                    if (order) {
-                        await updateOrderById({ orderStatus: OrderStatus.CONFIRMED }, orderId)
-                        await sendETARequest({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId })
                     }
                 }
             }
