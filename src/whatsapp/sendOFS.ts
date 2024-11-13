@@ -38,7 +38,7 @@ export const sendOFS = async ({
                         "rows": items.map((item) => {
                             return {
                                 "id": `OFS_${orderId}_${item.id}_${OFS_REPLIES.NOT_AVAILABLE}`,
-                                "title": item.name.length > 24 ? item.name.slice(0, 24) + '...' : item.name,
+                                "title": item.name.length > 24 ? item.name.slice(0, 21) + '...' : item.name,
                                 "description": item.quantity + " " + "عدد"
                             }
                         })
@@ -48,8 +48,8 @@ export const sendOFS = async ({
                         "rows": items.filter(item => item.note && item.note !== "").map((item) => {
                             return {
                                 "id": `OFS_${orderId}_${item.id}_${OFS_REPLIES.NOTE_ISSUE}`,
-                                "title": item.name.length > 24 ? item.name.slice(0, 24) + '...' : item.name,
-                                "description": item.note.length > 24 ? item.note.slice(0, 72) + '...' : item.note,
+                                "title": item.name.length > 24 ? item.name.slice(0, 21) + '...' : item.name,
+                                "description": item.note.length > 72 ? item.note.slice(0, 68) + '...' : item.note,
                             }
                         })
                     }
