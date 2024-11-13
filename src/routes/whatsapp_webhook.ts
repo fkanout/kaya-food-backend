@@ -138,47 +138,46 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
             }
 
             console.log("messagePayloadById", messagePayloadById)
-
-            if (messagePayloadById) {
-
-                if (messagePayloadById.startsWith("ETA")) {
-                    const [, eta, orderId] = messagePayloadById.split("_")
-                    console.log(eta, orderId)
-                    switch (eta) {
-                        case RESTAURANT_REPLAY_WHATSAPP[1800]:
-                        case RESTAURANT_REPLAY_WHATSAPP[2700]:
-                        case RESTAURANT_REPLAY_WHATSAPP[3600]: {
-                            await updateOrderById({ eta }, orderId)
-                            console.log(messagePayloadById, orderId)
-                            break;
-                        }
-                    }
-                }
-            }
-
-            if (messagePayloadByLastReply) {
-                console.log("messagePayloadByLastReply", messagePayloadByLastReply)
-                if (messagePayloadByLastReply.startsWith("OFS")) {
-                    const [, orderId, itemId, reason] = messagePayloadByLastReply.split("_")
-                    const order = await getOrderById(orderId)
-                    const items = (order?.itemsAfterOFS && order?.itemsAfterOFS?.length > 0 ? order?.itemsAfterOFS : order?.items) || []
-                    let itemsAfterOFS: Item[] = [];
-                    if (reason === OFS_REPLIES.NOTE_ISSUE) {
-                        itemsAfterOFS = items.map(item => {
-                            if (item.id === itemId) {
-                                return { ...item, note: "" };
-                            }
-                            return item;
-                        });
-                    } else if (reason === OFS_REPLIES.NOT_AVAILABLE) {
-                        itemsAfterOFS = items.filter(item => item.id !== itemId);
-                    }
-                    const updatedOrder = await updateOrderById({ itemsAfterOFS }, orderId)
-                    await sendModifyOrder({ restaurantPhoneNumber: from, orderId, order: updatedOrder?.itemsAfterOFS || [] })
-                }
-            }
-
-            reply.code(200).send({ status: "ok" })
         }
+        if (messagePayloadById) {
+            if (messagePayloadById.startsWith("ETA")) {
+                const [, eta, orderId] = messagePayloadById.split("_")
+                console.log(eta, orderId)
+                switch (eta) {
+                    case RESTAURANT_REPLAY_WHATSAPP[1800]:
+                    case RESTAURANT_REPLAY_WHATSAPP[2700]:
+                    case RESTAURANT_REPLAY_WHATSAPP[3600]: {
+                        await updateOrderById({ eta }, orderId)
+                        console.log(messagePayloadById, orderId)
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (messagePayloadByLastReply) {
+            console.log("messagePayloadByLastReply", messagePayloadByLastReply)
+            if (messagePayloadByLastReply.startsWith("OFS")) {
+                const [, orderId, itemId, reason] = messagePayloadByLastReply.split("_")
+                const order = await getOrderById(orderId)
+                const items = (order?.itemsAfterOFS && order?.itemsAfterOFS?.length > 0 ? order?.itemsAfterOFS : order?.items) || []
+                let itemsAfterOFS: Item[] = [];
+                if (reason === OFS_REPLIES.NOTE_ISSUE) {
+                    itemsAfterOFS = items.map(item => {
+                        if (item.id === itemId) {
+                            return { ...item, note: "" };
+                        }
+                        return item;
+                    });
+                } else if (reason === OFS_REPLIES.NOT_AVAILABLE) {
+                    itemsAfterOFS = items.filter(item => item.id !== itemId);
+                }
+                const updatedOrder = await updateOrderById({ itemsAfterOFS }, orderId)
+                await sendModifyOrder({ restaurantPhoneNumber: from, orderId, order: updatedOrder?.itemsAfterOFS || [] })
+            }
+        }
+
+        reply.code(200).send({ status: "ok" })
+
     })
 }
