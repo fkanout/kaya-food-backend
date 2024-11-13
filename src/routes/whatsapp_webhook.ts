@@ -121,7 +121,7 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
                 } else if (reason === OFS_REPLIES.DONE) {
                     const order = await getOrderById(orderId)
                     if (order) {
-                        await updateOrderById({ orderStatus: OrderStatus.CONFIRMED }, orderId)
+                        await updateOrderById({ orderStatus: OrderStatus.PENDING_CLIENT }, orderId)
                         await sendInfo({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from })
                     }
                 }

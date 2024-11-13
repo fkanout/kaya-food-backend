@@ -68,7 +68,7 @@ export default async function ordersRoute(server: FastifyInstance) {
                 clientAddress: userData.address,
                 items: hashedItems,
                 restaurantNotes: [],
-                orderStatus: OrderStatus.PENDING
+                orderStatus: OrderStatus.PENDING_RESTAURANT
             })
             if (order?.id) {
                 orderId = order.id

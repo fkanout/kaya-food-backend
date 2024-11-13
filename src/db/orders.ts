@@ -1,18 +1,17 @@
-import { WaitingThe } from "../types";
 import { DB_COLLECTIONS } from "./constants";
 
 
 import { db } from "./index"
 
 export const OrderStatus = {
-    PENDING: 'pending',
+    PENDING_RESTAURANT: 'pending_restaurant',
+    PENDING_CLIENT: 'pending_client',
     CANCELED_CLIENT: 'canceled_client',
     CANCELED_RESTAURANT: 'canceled_restaurant',
     CONFIRMED: 'received',
     DELAYED: 'delayed',
-    OUT_OF_STOCK: 'out_of_stock',
     ON_DELIVERY: 'on_delivery',
-    DONE: 'done'
+    DELIVERED: 'delivered',
 } as const
 export type OrderStatus = (typeof OrderStatus)[keyof typeof OrderStatus];
 
@@ -38,7 +37,6 @@ interface Order {
     clientNotes?: string[];
     whatsAppOrderMessageId?: string;
     itemsAfterOFS?: Item[];
-    waitingThe?: WaitingThe,
     eta?: string
 }
 
@@ -70,7 +68,6 @@ interface UpdateOrder {
     clientNotes?: string[]
     whatsAppOrderMessageId?: string;
     eta?: string,
-    waitingThe?: WaitingThe,
     itemsAfterOFS?: Item[]
 }
 

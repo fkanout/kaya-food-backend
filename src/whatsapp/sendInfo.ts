@@ -30,7 +30,7 @@ export const sendInfo = async ({
         if (reqRes.messages[0].message_status === 'accepted') {
             return reqRes.messages[0].id
         } else {
-            throw ('sendFinishOFS failed')
+            throw ('sendInfo failed')
         }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
