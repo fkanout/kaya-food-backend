@@ -62,6 +62,10 @@ export const sendOFS = async ({
     };
     try {
         console.log(JSON.stringify(ofsTemplate))
+        ofsTemplate.interactive.action.sections = ofsTemplate.interactive.action.sections.filter(
+            (section, index) => !(index === 0 && section.rows.length === 0 || index === 1 && section.rows.length === 0)
+        );
+
         const whatsappReq = await axios.post("https://graph.facebook.com/v20.0/467098409816102/messages", ofsTemplate, { headers: { 'Authorization': `Bearer ${process.env.WHATSAPP_API_KEY}` } })
         const reqRes = whatsappReq.data as unknown as WhatsAppMessageResponse
         if (reqRes.messages[0].message_status === 'accepted') {
