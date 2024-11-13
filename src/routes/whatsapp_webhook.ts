@@ -99,7 +99,20 @@ export default async function whatsappWebhookRoute(server: FastifyInstance) {
                     }
                 }
             }
-
+            if (restaurantReply === OFS_REPLIES.NOTE_ISSUE_SELECTED) {
+                const order = await getOrderById(orderId)
+                if (order) {
+                    const items = (order?.itemsAfterOFS && order?.itemsAfterOFS?.length > 0 ? order?.itemsAfterOFS : order?.items) || []
+                    await sendOFS({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId, items: items, isNoteIssue: true })
+                }
+            }
+            if (restaurantReply === OFS_REPLIES.NOT_AVAILABLE_SELECTED) {
+                const order = await getOrderById(orderId)
+                if (order) {
+                    const items = (order?.itemsAfterOFS && order?.itemsAfterOFS?.length > 0 ? order?.itemsAfterOFS : order?.items) || []
+                    await sendOFS({ whatsAppOrderMessageId: whatsAppMessageId, restaurantPhoneNumber: from, orderId, items: items, isNoteIssue: false })
+                }
+            }
             if (restaurantReply === OFS_REPLIES.REDO) {
                 const order = await getOrderById(orderId)
                 if (order) {
