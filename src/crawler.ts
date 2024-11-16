@@ -3,6 +3,7 @@ import { RESTAURANTS_IDS, RESTAURANTS_URL_BANY, RESTAURANTS_URL_LAMAZ, RESTAURAN
 import { pushFileToGitHub } from "./helpers/github";
 import { constructLamazRestaurant } from "./helpers/lamaz";
 import { constructQRListRestaurant } from "./helpers/qrlist/qrlist";
+import { Restaurant } from "./helpers/types";
 
 export const startCrawler = async () => {
     const saveBanyRestaurants = async () => {
@@ -39,6 +40,7 @@ export const startCrawler = async () => {
     await saveBanyRestaurants();
     await saveQRListRestaurants();
     await saveLamazRestaurants();
-
+    await pushFileToGitHub(Object.values(RESTAURANTS_IDS) as unknown as Restaurant, "restaurants");
+    console.log("All restaurants saved successfully 🚀");
 }
 

@@ -51,7 +51,7 @@ declare module 'fastify' {
     }
 
 }
-
+const prefix = '/api/v1';
 server.register(registerAuthDecorator(server));
 server.register(registerWhatsappHookDecorator(server));
 
@@ -59,14 +59,14 @@ server.register(fastifyJWT, {
     secret: process.env.JWT_SECRET,
 });
 
-server.register(login, { prefix: '/v1' })
-server.register(verifyOTP, { prefix: '/v1' })
+server.register(login, { prefix })
+server.register(verifyOTP, { prefix })
 
 //Protected JWT
-server.register(me, { prefix: '/v1' })
-server.register(ordersRoute, { prefix: '/v1' })
-server.register(clientsRoute, { prefix: '/v1' })
-server.register(whatsappWebhookRoute, { prefix: '/v1' })
+server.register(me, { prefix })
+server.register(ordersRoute, { prefix })
+server.register(clientsRoute, { prefix })
+server.register(whatsappWebhookRoute, { prefix })
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
