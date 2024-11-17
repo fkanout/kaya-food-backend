@@ -20,6 +20,7 @@ export interface Item {
     name: string;
     quantity: number;
     note: string;
+    price: number;
 }
 interface Order {
     id?: string,

@@ -10,6 +10,7 @@ interface Item {
     name: string;
     quantity: number;
     note: string;
+    price: number;
 }
 export interface Order {
     restaurantId: string;
@@ -74,7 +75,8 @@ export default async function ordersRoute(server: FastifyInstance) {
                     id: hashString(item.name, item.note, item.note),
                     name: item.name,
                     quantity: item.quantity,
-                    note: item.note || ""
+                    note: item.note || "",
+                    price: item.price
                 }
             });
             const order = await storeOrder({
