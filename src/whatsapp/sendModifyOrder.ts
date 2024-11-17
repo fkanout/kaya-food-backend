@@ -26,7 +26,7 @@ export const sendModifyOrder = async ({
                     "parameters": [
                         {
                             "type": "text",
-                            "text": order.map((item) => `⚪️ ${item.name} 𝘅 ${item.quantity} \\n ${item.note}\\n\\n`).join("")
+                            "text": order.map((item) => `◀︎ ${item.name} \\n ${item.quantity} 𝘅 ${item.price} = *${item.price * item.quantity}*₺\\n ${item.note}\\n\\n\\n`).join("")
                         }
                     ]
                 },
