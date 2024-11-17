@@ -8,7 +8,7 @@ export const OrderStatus = {
     PENDING_CLIENT: 'pending_client',
     CANCELED_CLIENT: 'canceled_client',
     CANCELED_RESTAURANT: 'canceled_restaurant',
-    CONFIRMED: 'received',
+    CONFIRMED: 'confirmed',
     DELAYED: 'delayed',
     ON_DELIVERY: 'on_delivery',
     DELIVERED: 'delivered',
@@ -22,6 +22,7 @@ export interface Item {
     note: string;
 }
 interface Order {
+    id?: string,
     restaurantId: string;
     restaurantTitle: string;
     restaurantWhatsApp: string;
@@ -100,7 +101,38 @@ export async function updateOrderById(order: UpdateOrder, orderId: string) {
         console.error("Error updating order:", error);
     }
 }
+export async function getOrdersByUserPhoneNumber(clientPhoneNumber: string, orderStatus?: OrderStatus): Promise<Order[]> {
+    try {
+        let query = db.collection('orders').where('clientPhoneNumber', '==', clientPhoneNumber);
+        if (orderStatus) {
+            query = query.where('orderStatus', '==', orderStatus);
+        }
+        const querySnapshot = await query.get();
 
+        const orders = querySnapshot.docs.map(doc => {
+            const data = doc.data();
+            return {
+                id: doc.id,
+                restaurantId: data.restaurantId,
+                restaurantTitle: data.restaurantTitle,
+                restaurantWhatsApp: data.restaurantWhatsApp,
+                clientPhoneNumber: data.clientPhoneNumber,
+                clientAddress: data.clientAddress,
+                items: data.items,
+                orderStatus: data.orderStatus,
+                restaurantNotes: data.restaurantNotes,
+                clientNotes: data.clientNotes,
+                whatsAppOrderMessageId: data.whatsAppOrderMessageId,
+                itemsAfterOFS: data.itemsAfterOFS,
+                eta: data.eta,
+            } as Order;
+        });
+        return orders;
+    } catch (error) {
+        console.error('Error fetching orders:', error);
+        throw new Error('Failed to fetch orders');
+    }
+}
 export async function updateOrderByWhatsAppChatId(order: UpdateOrder, whatsAppOrderMessageId: string) {
     const ordersRef = db.collection(DB_COLLECTIONS.ORDERS);
     const querySnapshot = await ordersRef.where('whatsAppOrderMessageId', '==', whatsAppOrderMessageId).limit(1).get();

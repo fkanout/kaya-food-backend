@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
 import axios from "axios";
 import { Restaurant } from "../helpers/types";
-import { OrderStatus, storeOrder, updateOrderById } from "../db/orders";
+import { getOrdersByUserPhoneNumber, OrderStatus, storeOrder, updateOrderById } from "../db/orders";
 import { getClientByPhoneNumber } from "../db/clients";
 import { sendWhatsappOrder } from "../whatsapp/sendOrder";
 import { hashString } from "../helpers/hash";
@@ -18,7 +18,7 @@ export interface Order {
 
 
 export default async function ordersRoute(server: FastifyInstance) {
-    const schema = {
+    const schemaPOST = {
         body: {
             type: "object",
             properties: {
@@ -43,7 +43,23 @@ export default async function ordersRoute(server: FastifyInstance) {
             required: ['restaurantId', 'items']
         },
     }
-    server.post('/orders', { preHandler: server.authenticate, schema }, async (request, reply) => {
+    const schemaGET = {
+        querystring: {
+            type: "object",
+            properties: {
+                status: {
+                    type: 'string',
+                },
+            },
+        }
+    }
+    server.get('/orders', { preHandler: server.authenticate, schema: schemaGET }, async (request, reply) => {
+        const user = request.user;
+        const { status } = request.query as Record<string, string | undefined>
+        const orders = await getOrdersByUserPhoneNumber(user.phoneNumber, status as OrderStatus)
+        reply.send(orders)
+    });
+    server.post('/orders', { preHandler: server.authenticate, schema: schemaPOST }, async (request, reply) => {
         const { restaurantId, items } = request.body as Order
         const user = request.user;
         const userData = await getClientByPhoneNumber(user.phoneNumber);
