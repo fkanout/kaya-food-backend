@@ -6,7 +6,7 @@ export const RESTAURANTS_IDS = {
     HAWA_MAHAL: "hawa-mahall-a",
     ATA: "alata-et-f",
     BEIT_BEYRUT: "beitbeyrutgn",
-    SAJ: "saj_falafel_pide"
+    SAJ: "saj-falafel-pide"
 } as const
 
 
