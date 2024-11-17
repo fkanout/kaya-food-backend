@@ -43,6 +43,7 @@ interface Order {
 }
 
 export async function storeOrder(order: Order) {
+    console.log("Storing order:", order);
     try {
         const ordersRef = db.collection(DB_COLLECTIONS.ORDERS);
         const newOrderRef = ordersRef.doc();

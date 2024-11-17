@@ -4,9 +4,10 @@ import { Restaurant } from "../helpers/types";
 import { getOrdersByUserPhoneNumber, OrderStatus, storeOrder, updateOrderById } from "../db/orders";
 import { getClientByPhoneNumber } from "../db/clients";
 import { sendWhatsappOrder } from "../whatsapp/sendOrder";
-import { hashString } from "../helpers/hash";
+
 
 interface Item {
+    id: string;
     name: string;
     quantity: number;
     note: string;
@@ -72,7 +73,7 @@ export default async function ordersRoute(server: FastifyInstance) {
             const { whatsappPhoneNumber, restaurantTitle } = data as Restaurant
             const hashedItems = items.map(item => {
                 return {
-                    id: hashString(item.name, item.note, item.note),
+                    id: item.id,
                     name: item.name,
                     quantity: item.quantity,
                     note: item.note || "",

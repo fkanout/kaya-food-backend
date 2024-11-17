@@ -3,6 +3,7 @@ import * as cheerio from 'cheerio';
 import { RawCategory, Entity, RawRestaurant, RestaurantId, RestaurantURL } from "./types";
 import path from "path";
 import { Restaurant } from "../types";
+import { hashString } from "../hash";
 
 
 async function fetchJsonFromScriptTag(url: string): Promise<RawRestaurant | null> {
@@ -73,7 +74,7 @@ export const extractRestaurantCategories = async (restaurantURL: RestaurantURL, 
                 productsCount: products?.length,
                 categoryImg: img,
                 products: products?.map((product) => ({
-                    id: product.idString,
+                    id: hashString(product.idString, category.idString, restaurantURL),
                     title: {
                         ar: product.translations[0]?.title.trim(),
                         en: product.translations[1]?.title.trim(),

@@ -2,6 +2,7 @@ import axios from 'axios';
 import * as cheerio from 'cheerio';
 import path from 'path';
 import { RESTAURANTS_IDS } from '../constant';
+import { hashString } from '../hash';
 export type Product = {
     id: string;
     title: {
@@ -71,7 +72,7 @@ const extractProducts = async (categoryURL: string): Promise<Product[]> => {
                 throw ("No productId found - extractProducts ")
             }
             const product = {
-                id: productId,
+                id: hashString(productId, categoryURL),
                 title: {
                     ar: $(element).find('div.MuiImageListItemBar-title').text(),
                 },

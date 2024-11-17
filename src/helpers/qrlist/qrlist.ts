@@ -3,6 +3,7 @@ import { ApiResponse, RawProduct } from "./types";
 import { Category, Restaurant } from "../types";
 import { RESTAURANTS_IDS } from "../constant";
 import path from "path";
+import { hashString } from "../hash";
 
 function extractStoreId(url: string): string {
     const urlObj = new URL(url);
@@ -76,7 +77,7 @@ export const constructQRListRestaurant = async (restaurantURL: string): Promise<
                 categoryImg: path.join("https://qrlist.app/storage", category.image),
                 productsCount: products?.length,
                 products: products?.map((product) => ({
-                    id: String(product.id),
+                    id: hashString(String(product.id), restaurantId, categoryURL),
                     title: {
                         ar: product.name
                     },
