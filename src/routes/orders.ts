@@ -32,6 +32,7 @@ export default async function ordersRoute(server: FastifyInstance) {
                     items: {
                         type: 'object',
                         properties: {
+                            id: { type: 'string' },
                             name: { type: 'string' },
                             quantity: { type: 'integer', minimum: 1 },
                             note: { type: 'string' },
