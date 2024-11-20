@@ -4,7 +4,7 @@ import { Item } from "../db/orders";
 import { sendInfo } from "./sendInfo";
 
 export const sendOFS = async ({
-    // restaurantPhoneNumber,
+    restaurantPhoneNumber,
     whatsAppOrderMessageId,
     orderId,
     items,
@@ -19,7 +19,7 @@ export const sendOFS = async ({
     const ofsTemplate = {
         "recipient_type": "individual",
         "messaging_product": "whatsapp",
-        "to": "33750930539",//TODO: Restaurant phone number
+        "to": restaurantPhoneNumber,
         "type": "interactive",
         "interactive": {
             "type": "list",

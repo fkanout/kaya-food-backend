@@ -2,7 +2,7 @@ import axios from "axios"
 import { OFS_REPLIES, WhatsAppMessageResponse } from "../types"
 
 export const sendFinishOFS = async ({
-    // restaurantPhoneNumber,
+    restaurantPhoneNumber,
     whatsAppOrderMessageId,
     orderId,
 }: {
@@ -13,7 +13,7 @@ export const sendFinishOFS = async ({
     const finishOFSTemplate = {
         "recipient_type": "individual",
         "messaging_product": "whatsapp",
-        "to": "33750930539",//TODO: Restaurant phone number
+        "to": restaurantPhoneNumber,
         "type": "interactive",
         "interactive": {
             "type": "button",

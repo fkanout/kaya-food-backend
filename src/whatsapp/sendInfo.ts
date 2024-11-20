@@ -4,7 +4,7 @@ import axios from "axios"
 import { WhatsAppMessageResponse } from "../types"
 
 export const sendInfo = async ({
-    // restaurantPhoneNumber,
+    restaurantPhoneNumber,
     whatsAppOrderMessageId,
     body,
 }: {
@@ -15,7 +15,7 @@ export const sendInfo = async ({
     const infoTemplate = {
         "recipient_type": "individual",
         "messaging_product": "whatsapp",
-        "to": "33750930539",//TODO: Restaurant phone number
+        "to": restaurantPhoneNumber,
         "type": "text",
         "text": {
             "body": body

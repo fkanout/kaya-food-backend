@@ -1,7 +1,7 @@
 import axios from "axios"
 import { RESTAURANT_REPLAY_WHATSAPP, WhatsAppMessageResponse } from "../types"
 export const sendETARequest = async ({
-    // restaurantPhoneNumber,
+    restaurantPhoneNumber,
     whatsAppOrderMessageId,
     orderId
 }: {
@@ -126,7 +126,7 @@ export const sendETARequest = async ({
     // }
     const etaTemplate = {
         messaging_product: 'whatsapp',
-        "to": "33750930539",//TODO: Restaurant phone number
+        "to": restaurantPhoneNumber,
         type: 'interactive',
         interactive: {
             type: 'button',

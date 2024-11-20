@@ -21,6 +21,14 @@ export interface Order {
 
 export default async function ordersRoute(server: FastifyInstance) {
     const schemaPOST = {
+        querystring: {
+            type: "object",
+            properties: {
+                dev_phone_number: {
+                    type: 'string',
+                },
+            },
+        },
         body: {
             type: "object",
             properties: {
@@ -65,6 +73,8 @@ export default async function ordersRoute(server: FastifyInstance) {
     });
     server.post('/orders', { preHandler: server.authenticate, schema: schemaPOST }, async (request, reply) => {
         const { restaurantId, items } = request.body as Order
+        const { dev_phone_number } = request.query as Record<string, string | undefined>
+
         const user = request.user;
         const userData = await getClientByPhoneNumber(user.phoneNumber);
         const restaurantURL = `https://fkanout.github.io/kaya-food/restaurants/${restaurantId}.json`
@@ -94,7 +104,8 @@ export default async function ordersRoute(server: FastifyInstance) {
             if (order?.id) {
                 orderId = order.id
                 const whatsAppOrderMessageId = await sendWhatsappOrder({
-                    restaurantPhoneNumber: whatsappPhoneNumber,
+                    // eslint-disable-next-line no-constant-binary-expression
+                    restaurantPhoneNumber: dev_phone_number || '33750930539' || whatsappPhoneNumber,
                     orderId: order?.id || "orderId",
                     clientFirstName: userData.firstName,
                     clientLastName: userData.lastName,

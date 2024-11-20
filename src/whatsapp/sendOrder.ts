@@ -2,7 +2,7 @@ import axios from "axios"
 import { Item } from "../db/orders"
 import { RESTAURANT_REPLAY_WHATSAPP, WhatsAppMessageResponse } from "../types"
 export const sendWhatsappOrder = async ({
-    // restaurantPhoneNumber,
+    restaurantPhoneNumber,
     orderId,
     clientFirstName,
     clientLastName,
@@ -30,7 +30,7 @@ export const sendWhatsappOrder = async ({
     }
     const newOrderReceivedTemplate = {
         "messaging_product": "whatsapp",
-        "to": "33750930539",//TODO: restaurantPhoneNumber
+        "to": restaurantPhoneNumber,
         "type": "template",
         "template": {
             "name": "new_order_received",
