@@ -104,7 +104,10 @@ export async function updateOrderById(order: UpdateOrder, orderId: string) {
 }
 export async function getOrdersByUserPhoneNumber(clientPhoneNumber: string, orderStatus?: OrderStatus): Promise<Order[]> {
     try {
-        let query = db.collection('orders').where('clientPhoneNumber', '==', clientPhoneNumber);
+        let query = db.collection('orders')
+            .where('clientPhoneNumber', '==', clientPhoneNumber)
+            .orderBy('createdDate', 'desc');
+
         if (orderStatus) {
             query = query.where('orderStatus', '==', orderStatus);
         }
