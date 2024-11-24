@@ -82,24 +82,17 @@ export default async function ordersRoute(server: FastifyInstance) {
         try {
             const { data } = await axios(restaurantURL);
             const { whatsappPhoneNumber, restaurantTitle } = data as Restaurant
-            const hashedItems = items.map(item => {
-                return {
-                    id: item.id,
-                    name: item.name,
-                    quantity: item.quantity,
-                    note: item.note || "",
-                    price: item.price
-                }
-            });
+            console.log(userData)
             const order = await storeOrder({
                 restaurantId,
                 restaurantTitle: restaurantTitle.ar || restaurantId,
                 restaurantWhatsApp: whatsappPhoneNumber,
                 clientPhoneNumber: user.phoneNumber,
                 clientAddress: userData.address,
-                items: hashedItems,
+                items: items,
                 restaurantNotes: [],
-                orderStatus: OrderStatus.PENDING_RESTAURANT
+                orderStatus: OrderStatus.PENDING_RESTAURANT,
+                totalPrice: items.reduce((acc, item) => acc + item.price * item.quantity, 0)
             })
             if (order?.id) {
                 orderId = order.id
@@ -113,7 +106,7 @@ export default async function ordersRoute(server: FastifyInstance) {
                     clientResidence: userData.address.residence,
                     clientBlock: userData.address.block,
                     clientFlat: userData.address.flat,
-                    order: hashedItems
+                    order: items
                 })
                 if (whatsAppOrderMessageId) {
                     // await sendOFS({ whatsAppOrderMessageId, orderId, items: hashedItems, restaurantPhoneNumber: whatsappPhoneNumber })

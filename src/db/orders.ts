@@ -32,8 +32,9 @@ interface Order {
         residence: string;
         block: string;
         flat: string;
-    }
+    };
     items: Item[];
+    totalPrice: number;
     orderStatus: OrderStatus;
     restaurantNotes?: string[];
     clientNotes?: string[];
@@ -51,10 +52,11 @@ export async function storeOrder(order: Order) {
             restaurantTitle: order.restaurantTitle,
             restaurantWhatsApp: order.restaurantWhatsApp,
             clientPhoneNumber: order.clientPhoneNumber,
-            address: order.clientAddress,
+            clientAddress: order.clientAddress,
             items: order.items,
             orderStatus: order.orderStatus,
             createdDate: new Date().getTime(),
+            totalPrice: order.totalPrice,
             whatsAppOrderMessageId: order.whatsAppOrderMessageId || ""
         });
         const newUserSnapshot = await newOrderRef.get();
@@ -126,6 +128,7 @@ export async function getOrdersByUserPhoneNumber(clientPhoneNumber: string, orde
                 orderStatus: data.orderStatus,
                 restaurantNotes: data.restaurantNotes,
                 clientNotes: data.clientNotes,
+                totalPrice: data.totalPrice,
                 whatsAppOrderMessageId: data.whatsAppOrderMessageId,
                 itemsAfterOFS: data.itemsAfterOFS,
                 eta: data.eta,
